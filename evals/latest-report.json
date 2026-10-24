@@ -1,0 +1,314 @@
+{
+  "evaluated_at": "2026-10-24T05:23:56.191348+00:00",
+  "scope": "One recorded Jieyang trip plus deterministic fault injections; offline rule regression, not LLM accuracy or production availability.",
+  "total": 20,
+  "passed": 20,
+  "cases": [
+    {
+      "id": "recorded-control",
+      "description": "真实录制行程仅有开放规则待确认",
+      "passed": true,
+      "status": "needs_confirmation",
+      "errors": 0,
+      "warnings": 1,
+      "detected": [
+        "opening_unknown"
+      ],
+      "expected": [
+        "opening_unknown"
+      ]
+    },
+    {
+      "id": "stale-verdict-control",
+      "description": "重新解析最终时段而非信任缓存的未知结论",
+      "passed": true,
+      "status": "passed",
+      "errors": 0,
+      "warnings": 0,
+      "detected": [],
+      "expected": []
+    },
+    {
+      "id": "date-mismatch",
+      "description": "识别行程日期偏离需求",
+      "passed": true,
+      "status": "invalid",
+      "errors": 2,
+      "warnings": 1,
+      "detected": [
+        "dates",
+        "opening_unknown",
+        "weather_date"
+      ],
+      "expected": [
+        "dates",
+        "weather_date"
+      ]
+    },
+    {
+      "id": "city-mismatch",
+      "description": "识别城市偏离需求",
+      "passed": true,
+      "status": "invalid",
+      "errors": 1,
+      "warnings": 1,
+      "detected": [
+        "dates",
+        "opening_unknown"
+      ],
+      "expected": [
+        "dates"
+      ]
+    },
+    {
+      "id": "overlap",
+      "description": "识别景点与前一交通段重叠",
+      "passed": true,
+      "status": "invalid",
+      "errors": 2,
+      "warnings": 1,
+      "detected": [
+        "opening_conflict",
+        "opening_unknown",
+        "schedule"
+      ],
+      "expected": [
+        "schedule"
+      ]
+    },
+    {
+      "id": "bad-time",
+      "description": "识别无法解析的时间",
+      "passed": true,
+      "status": "invalid",
+      "errors": 1,
+      "warnings": 1,
+      "detected": [
+        "opening_unknown",
+        "schedule"
+      ],
+      "expected": [
+        "schedule"
+      ]
+    },
+    {
+      "id": "short-visit",
+      "description": "不得截短完整建议停留时间",
+      "passed": true,
+      "status": "invalid",
+      "errors": 1,
+      "warnings": 1,
+      "detected": [
+        "opening_unknown",
+        "visit_duration"
+      ],
+      "expected": [
+        "visit_duration"
+      ]
+    },
+    {
+      "id": "transport-duration",
+      "description": "交通时段必须等于实际耗时",
+      "passed": true,
+      "status": "invalid",
+      "errors": 1,
+      "warnings": 1,
+      "detected": [
+        "opening_unknown",
+        "transport_duration"
+      ],
+      "expected": [
+        "transport_duration"
+      ]
+    },
+    {
+      "id": "arrival-buffer",
+      "description": "识别交通到达后没有留出缓冲",
+      "passed": true,
+      "status": "invalid",
+      "errors": 1,
+      "warnings": 1,
+      "detected": [
+        "opening_unknown",
+        "schedule"
+      ],
+      "expected": [
+        "schedule"
+      ]
+    },
+    {
+      "id": "closed",
+      "description": "闭馆规则必须阻止提交",
+      "passed": true,
+      "status": "invalid",
+      "errors": 1,
+      "warnings": 1,
+      "detected": [
+        "opening_conflict",
+        "opening_unknown"
+      ],
+      "expected": [
+        "opening_conflict"
+      ]
+    },
+    {
+      "id": "opening-window",
+      "description": "识别游玩超出开放时段",
+      "passed": true,
+      "status": "invalid",
+      "errors": 1,
+      "warnings": 1,
+      "detected": [
+        "opening_conflict",
+        "opening_unknown"
+      ],
+      "expected": [
+        "opening_conflict"
+      ]
+    },
+    {
+      "id": "unknown-opening",
+      "description": "无规则应提示确认，不应推断已开放",
+      "passed": true,
+      "status": "needs_confirmation",
+      "errors": 0,
+      "warnings": 1,
+      "detected": [
+        "opening_unknown"
+      ],
+      "expected": [
+        "opening_unknown"
+      ]
+    },
+    {
+      "id": "ungrounded-place",
+      "description": "识别候选池之外的景点",
+      "passed": true,
+      "status": "invalid",
+      "errors": 2,
+      "warnings": 1,
+      "detected": [
+        "attraction_overview",
+        "grounding",
+        "opening_unknown"
+      ],
+      "expected": [
+        "grounding",
+        "attraction_overview"
+      ]
+    },
+    {
+      "id": "duplicate-meal",
+      "description": "同一天不能有两次同餐别安排",
+      "passed": true,
+      "status": "invalid",
+      "errors": 2,
+      "warnings": 2,
+      "detected": [
+        "meal_duplicate",
+        "meal_missing",
+        "meal_window",
+        "opening_unknown"
+      ],
+      "expected": [
+        "meal_duplicate",
+        "meal_missing",
+        "meal_window"
+      ]
+    },
+    {
+      "id": "missing-weather",
+      "description": "天气缺失明确提示，保持行程可读",
+      "passed": true,
+      "status": "needs_confirmation",
+      "errors": 0,
+      "warnings": 2,
+      "detected": [
+        "opening_unknown",
+        "weather_unavailable"
+      ],
+      "expected": [
+        "weather_unavailable"
+      ]
+    },
+    {
+      "id": "budget-sum",
+      "description": "识别总预算与各类别相加不符",
+      "passed": true,
+      "status": "invalid",
+      "errors": 1,
+      "warnings": 1,
+      "detected": [
+        "budget_sum",
+        "opening_unknown"
+      ],
+      "expected": [
+        "budget_sum"
+      ]
+    },
+    {
+      "id": "budget-ledger",
+      "description": "识别分类金额与实际安排不符",
+      "passed": true,
+      "status": "invalid",
+      "errors": 1,
+      "warnings": 1,
+      "detected": [
+        "budget_ledger",
+        "opening_unknown"
+      ],
+      "expected": [
+        "budget_ledger"
+      ]
+    },
+    {
+      "id": "over-budget",
+      "description": "超预算保留明确提醒，不能伪称预算满足",
+      "passed": true,
+      "status": "needs_confirmation",
+      "errors": 0,
+      "warnings": 2,
+      "detected": [
+        "budget_limit",
+        "opening_unknown"
+      ],
+      "expected": [
+        "budget_limit"
+      ]
+    },
+    {
+      "id": "room-count",
+      "description": "人数变化后复核实际房间数账目",
+      "passed": true,
+      "status": "invalid",
+      "errors": 1,
+      "warnings": 1,
+      "detected": [
+        "budget_ledger",
+        "opening_unknown"
+      ],
+      "expected": [
+        "budget_ledger"
+      ]
+    },
+    {
+      "id": "missing-stay",
+      "description": "住宿链必须覆盖全部日期",
+      "passed": true,
+      "status": "invalid",
+      "errors": 3,
+      "warnings": 1,
+      "detected": [
+        "budget_ledger",
+        "opening_unknown",
+        "stay_dates",
+        "stay_nights"
+      ],
+      "expected": [
+        "stay_dates",
+        "stay_nights",
+        "budget_ledger"
+      ]
+    }
+  ]
+}

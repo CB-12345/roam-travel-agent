@@ -1,0 +1,57 @@
+{
+  "tested_at": "2026-10-24",
+  "scope": "One live Jieyang one-day generation with existing configured services; not a benchmark or general success rate.",
+  "request": {
+    "budget_max": 2500,
+    "budget_min": 1500,
+    "city": "揭阳",
+    "departure_city": "",
+    "end_date": "2026-10-25",
+    "extra_preferences": "优先榕城区古城文化，少折返",
+    "hotel_style": "comfort",
+    "pace": "balanced",
+    "preferences": [
+      "humanity",
+      "food"
+    ],
+    "start_date": "2026-10-25",
+    "stay_nights": 1,
+    "taboos": "",
+    "transit_preference": "recommended",
+    "transport_mode": "public_transit",
+    "travelers": 2,
+    "trip_days": 1
+  },
+  "status": "completed",
+  "quality": {
+    "checked_at": "2026-10-24T04:54:13.761725+00:00",
+    "errors": 0,
+    "issues": [],
+    "metrics": {
+      "concrete_meals": 3,
+      "days": 1,
+      "meals": 3,
+      "opening_fits": 5,
+      "opening_unknown": 0,
+      "stops": 5,
+      "stops_with_coordinates": 5,
+      "weather_unknown_days": 0
+    },
+    "note": "检查日期、时间、账目和资料完整度；不代表实时营业、预约库存或实际成交价保证。",
+    "status": "passed",
+    "version": "1.0",
+    "warnings": 0
+  },
+  "run": {
+    "elapsed_seconds": 95.74,
+    "failed_calls": 0,
+    "http_calls": 44,
+    "input_tokens": 50051,
+    "llm_calls": 11,
+    "output_tokens": 11326,
+    "token_reports": 11,
+    "tool_calls": 12
+  },
+  "browser_refresh_recovered_same_task": true,
+  "note": "Token counts include provider-reported usage only; excludes subsequent UI metadata enrichment. No provider keys, raw prompts or task payloads in trace."
+}

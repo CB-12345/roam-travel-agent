@@ -1,0 +1,13 @@
+*
+!Dockerfile
+!requirements.txt
+!requirements.lock.txt
+!main.py
+!src/
+!src/**
+!static/
+!static/**
+!examples/
+!examples/**
+**/__pycache__/
+**/*.pyc

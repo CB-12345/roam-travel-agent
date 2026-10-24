@@ -1,0 +1,148 @@
+.home-utilities {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0 10px;
+}
+.home-utilities small {
+  color: var(--muted);
+}
+.task-recovery,
+.demo-notice {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface-blue);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  color: var(--ink);
+}
+.task-recovery {
+  margin: 18px auto;
+  max-width: 1080px;
+}
+.task-recovery p,
+.demo-notice p {
+  flex: 1;
+  min-width: 180px;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+}
+.demo-notice {
+  margin: 0 0 20px;
+}
+.demo-notice strong {
+  color: var(--primary);
+}
+.quality-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  margin: 20px 0;
+}
+.quality-card summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  cursor: pointer;
+  list-style: none;
+  font-size: 16px;
+}
+.quality-card summary::-webkit-details-marker {
+  display: none;
+}
+.quality-card summary strong {
+  font-weight: 500;
+  color: var(--primary);
+  margin-left: auto;
+}
+.quality-card summary .quality-error {
+  color: var(--danger);
+}
+.quality-card .chevron {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.quality-card[open] .chevron {
+  transform: rotate(180deg);
+}
+.quality-content {
+  padding: 0 20px 16px;
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.quality-content p {
+  margin: 0 0 8px;
+}
+.quality-content ul {
+  padding-left: 20px;
+  margin: 8px 0;
+}
+.trip-more {
+  position: relative;
+}
+.trip-more summary {
+  list-style: none;
+  cursor: pointer;
+}
+.trip-more summary::-webkit-details-marker {
+  display: none;
+}
+.trip-more-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  z-index: 12;
+  min-width: 190px;
+  padding: 8px;
+  background: var(--surface);
+  box-shadow: 0 12px 30px #0002;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.trip-more-menu button {
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  text-align: left;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.trip-more-menu button:hover {
+  background: var(--surface-soft);
+}
+.task-recovery button:focus-visible,
+.trip-more summary:focus-visible,
+.quality-card summary:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .task-recovery {
+    margin: 12px;
+  }
+  .quality-card summary {
+    padding: 14px;
+    gap: 8px;
+  }
+  .quality-content {
+    padding: 0 14px 14px;
+  }
+  .home-utilities {
+    gap: 8px;
+  }
+  .demo-notice {
+    padding: 14px;
+  }
+}

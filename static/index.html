@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#faf9f6" />
+    <title>漫游 · 你的旅行工作台</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/workspace.css?v=20261023-revisions" />
+    <link rel="stylesheet" href="/result.css?v=20261024-portfolio-v2" />
+    <link rel="stylesheet" href="/portfolio.css?v=20261024-portfolio-v2" />
+    <script>
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("roam.theme") || "light";
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <svg
+      class="icon-defs"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <defs>
+        <symbol id="i-compass" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" />
+          <path d="m16 8-2.5 5.5L8 16l2.5-5.5Z" />
+        </symbol>
+        <symbol id="i-plus" viewBox="0 0 24 24">
+          <path d="M12 5v14M5 12h14" />
+        </symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24">
+          <path d="M5 12h14m-6-6 6 6-6 6" />
+        </symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24">
+          <path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z" />
+          <circle cx="12" cy="10" r="2.5" />
+        </symbol>
+        <symbol id="i-map" viewBox="0 0 24 24">
+          <path d="m9 4-6 3v14l6-3 6 3 6-3V4l-6 3Zm0 0v14m6-11v14" />
+        </symbol>
+        <symbol id="i-calendar" viewBox="0 0 24 24">
+          <rect x="3" y="5" width="18" height="16" rx="3" />
+          <path d="M16 3v4M8 3v4M3 11h18" />
+        </symbol>
+        <symbol id="i-chevron" viewBox="0 0 24 24">
+          <path d="m9 5 7 7-7 7" />
+        </symbol>
+        <symbol id="i-settings" viewBox="0 0 24 24">
+          <path d="M4 7h16M4 17h16" />
+          <circle cx="9" cy="7" r="3" />
+          <circle cx="15" cy="17" r="3" />
+        </symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24">
+          <path d="M20.8 13A9 9 0 0 1 11 3.2 9 9 0 1 0 20.8 13Z" />
+        </symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="4" />
+          <path
+            d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"
+          />
+        </symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </symbol>
+        <symbol id="i-download" viewBox="0 0 24 24">
+          <path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4" />
+        </symbol>
+        <symbol id="i-check" viewBox="0 0 24 24">
+          <path d="m5 12 4 4L19 6" />
+        </symbol>
+        <symbol id="i-clock" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 7v5l3 2" />
+        </symbol>
+        <symbol id="i-leaf" viewBox="0 0 24 24">
+          <path d="M20 3C8 2 2 8 5 16c8 5 15-1 15-13ZM4 21 15 10" />
+        </symbol>
+        <symbol id="i-bowl" viewBox="0 0 24 24">
+          <path d="M3 11h18c0 6-4 9-9 9s-9-3-9-9ZM8 4v3m4-4v4m4-3v3M8 22h8" />
+        </symbol>
+        <symbol id="i-building" viewBox="0 0 24 24">
+          <path
+            d="M4 21V8h6V3h10v18M2 21h20M7 12v1m0 3v1m7-10h2m-2 4h2m-2 4h2m-3 6v-3h4v3"
+          />
+        </symbol>
+        <symbol id="i-edit" viewBox="0 0 24 24">
+          <path d="m14 5 5 5M4 20l5-1L21 7l-5-5L4 14Zm0 0-1 1" />
+        </symbol>
+        <symbol id="i-spark" viewBox="0 0 24 24">
+          <path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z" />
+        </symbol>
+      </defs>
+    </svg>
+
+    <a class="skip-link" href="#mainContent">跳到主要内容</a>
+    <button
+      class="sidebar-backdrop"
+      id="sidebarBackdrop"
+      aria-label="关闭导航"
+      hidden
+    ></button>
+    <aside class="sidebar" id="sidebar" aria-label="旅行导航">
+      <button type="button" class="brand" id="brandHome" aria-label="漫游首页">
+        <span class="brand-symbol"
+          ><svg class="icon"><use href="#i-compass" /></svg
+        ></span>
+        <span>漫游<span class="brand-en">ROAM</span></span>
+      </button>
+      <button type="button" class="new-trip" id="newTripBtn">
+        <svg class="icon"><use href="#i-plus" /></svg>开启新的旅行<span
+          class="key-hint"
+          >＋</span
+        >
+      </button>
+      <div class="sidebar-section-label">工作空间</div>
+      <button type="button" class="sidebar-link active" id="plannerHome">
+        <svg class="icon"><use href="#i-compass" /></svg>旅行规划
+      </button>
+      <div class="history-heading">
+        <span class="sidebar-section-label">我的行程</span
+        ><span id="historyCount" class="history-count">0</span>
+      </div>
+      <nav
+        id="tripHistory"
+        class="trip-history"
+        aria-label="已保存的旅行"
+      ></nav>
+      <div id="historyEmpty" class="history-empty">
+        <svg class="icon"><use href="#i-map" /></svg>
+        <p>下一段故事，从这里开始。</p>
+        <span>生成的行程会保存在这台设备上</span>
+      </div>
+      <div class="sidebar-bottom">
+        <div class="local-note">
+          <span class="status-dot"></span>行程保存在当前浏览器
+        </div>
+        <div class="profile">
+          <span class="avatar">旅</span>
+          <div><strong>旅行者</strong><span>去发现日常以外的风景</span></div>
+          <svg class="icon"><use href="#i-leaf" /></svg>
+        </div>
+      </div>
+    </aside>
+
+    <div class="workspace">
+      <header class="workspace-header">
+        <div class="breadcrumb">
+          <button
+            type="button"
+            class="icon-button mobile-menu"
+            id="menuBtn"
+            aria-label="打开导航"
+            aria-controls="sidebar"
+            aria-expanded="false"
+          >
+            <svg class="icon"><use href="#i-menu" /></svg></button
+          ><svg class="icon desktop-compass"><use href="#i-compass" /></svg
+          ><span>旅行工作台</span><span class="breadcrumb-divider">/</span
+          ><span id="workspaceTitle">新的旅行</span>
+        </div>
+        <div class="header-actions">
+          <span class="service-status" id="healthText" role="status"
+            >正在连接服务</span
+          ><span class="header-divider"></span
+          ><button
+            type="button"
+            class="icon-button"
+            id="themeBtn"
+            aria-label="切换到深色模式"
+            title="切换主题"
+          >
+            <svg class="icon"><use id="themeIcon" href="#i-moon" /></svg>
+          </button>
+        </div>
+      </header>
+
+      <main id="mainContent" class="app-shell">
+        <section
+          id="formPage"
+          class="page page-active"
+          aria-labelledby="welcomeTitle"
+        >
+          <div class="home-shell">
+            <div class="welcome">
+              <div class="welcome-art" aria-hidden="true">
+                <svg viewBox="0 0 120 82">
+                  <path
+                    d="m17 24 27-9 31 10 28-11v45L76 70 44 60 17 69Z"
+                    fill="var(--art-paper)"
+                    stroke="var(--art-line)"
+                    stroke-width="1.3"
+                  />
+                  <path
+                    d="M44 15v45m31-35 1 45"
+                    fill="none"
+                    stroke="var(--art-line)"
+                    stroke-width="1.3"
+                  />
+                  <path
+                    d="M28 52c18-29 27 18 48-19"
+                    fill="none"
+                    stroke="var(--primary)"
+                    stroke-width="1.8"
+                    stroke-dasharray="3 4"
+                    stroke-linecap="round"
+                  />
+                  <circle cx="28" cy="52" r="3" fill="var(--primary)" />
+                  <path
+                    d="M90 25c0 9-11 18-11 18S68 34 68 25a11 11 0 0 1 22 0Z"
+                    fill="var(--primary)"
+                  />
+                  <circle cx="79" cy="25" r="3.5" fill="var(--surface)" />
+                  <path
+                    d="m106 4 1.5 4.5L112 10l-4.5 1.5L106 16l-1.5-4.5L100 10l4.5-1.5Z"
+                    fill="var(--warm)"
+                  />
+                </svg>
+              </div>
+              <div class="welcome-eyebrow">让期待，成为行程</div>
+              <h1 id="welcomeTitle">下一站，<span>想去哪里？</span></h1>
+              <p>把目的地交给我，把时间留给沿途的风景。</p>
+            </div>
+
+            <form id="travelForm" class="planner-form">
+              <div class="composer-caption">
+                <svg class="icon"><use href="#i-spark" /></svg
+                ><span>一起规划你的下一次出发</span
+                ><span class="day-limit">1–7 天短途旅行</span>
+              </div>
+              <div class="destination-grid form-grid">
+                <label class="field field-city"
+                  ><span
+                    ><svg class="icon"><use href="#i-pin" /></svg>目的地</span
+                  ><input
+                    type="text"
+                    id="city"
+                    placeholder="你想探索的城市"
+                    maxlength="40"
+                    autocomplete="off"
+                    required
+                /></label>
+                <label class="field"
+                  ><span
+                    ><svg class="icon"><use href="#i-calendar" /></svg
+                    >出发日期</span
+                  ><input type="date" id="startDate" required
+                /></label>
+                <label class="field"
+                  ><span
+                    ><svg class="icon"><use href="#i-calendar" /></svg
+                    >返程日期</span
+                  ><input type="date" id="endDate" required
+                /></label>
+              </div>
+              <div class="preferences-row">
+                <span class="field-label">这次想体验</span>
+                <div
+                  class="chips"
+                  id="preferenceChips"
+                  role="group"
+                  aria-label="旅行偏好"
+                ></div>
+              </div>
+              <details class="trip-options" id="tripOptions">
+                <summary>
+                  <span class="options-heading"
+                    ><svg class="icon"><use href="#i-settings" /></svg
+                    >旅行设置<span id="optionsSummary" class="options-summary"
+                      >2 人 · ¥1,200–2,500 · 公共交通</span
+                    ></span
+                  ><svg class="icon chevron"><use href="#i-chevron" /></svg>
+                </summary>
+                <div class="options-content">
+                  <div class="form-grid three">
+                    <label class="field"
+                      ><span>同行人数</span
+                      ><input
+                        type="number"
+                        id="travelers"
+                        min="1"
+                        max="10"
+                        value="2"
+                        required /></label
+                    ><label class="field"
+                      ><span>预算下限 / 元</span
+                      ><input
+                        type="number"
+                        id="budgetMin"
+                        min="100"
+                        value="1200"
+                        required /></label
+                    ><label class="field"
+                      ><span>预算上限 / 元</span
+                      ><input
+                        type="number"
+                        id="budgetMax"
+                        min="100"
+                        value="2500"
+                        required
+                    /></label>
+                  </div>
+                  <div class="form-grid three">
+                    <label class="field"
+                      ><span>旅行节奏</span
+                      ><select id="pace">
+                        <option value="relaxed">悠闲慢游</option>
+                        <option value="balanced" selected>张弛有度</option>
+                        <option value="intense">充实紧凑</option>
+                      </select></label
+                    ><label class="field"
+                      ><span>住宿偏好</span
+                      ><select id="hotelStyle">
+                        <option value="budget">经济实惠</option>
+                        <option value="comfort" selected>舒适品质</option>
+                        <option value="premium">高档享受</option>
+                      </select></label
+                    ><label class="field"
+                      ><span>出行方式</span
+                      ><select id="transportMode">
+                        <option value="public_transit" selected>
+                          公共交通
+                        </option>
+                        <option value="self_drive">自驾出行</option>
+                        <option value="taxi">打车出行</option>
+                        <option value="mixed">灵活混合</option>
+                      </select></label
+                    >
+                  </div>
+                  <label class="field transit-field" id="transitPreferenceWrap"
+                    ><span>公共交通偏好</span
+                    ><select id="transitPreference">
+                      <option value="recommended" selected>综合推荐</option>
+                      <option value="less_walking">少走一点路</option>
+                      <option value="subway_priority">优先乘地铁</option>
+                      <option value="bus_priority">优先坐公交</option>
+                    </select></label
+                  >
+                  <div class="form-grid two">
+                    <label class="field"
+                      ><span>特别想做的事 <small>选填</small></span
+                      ><textarea
+                        id="extraPreferences"
+                        rows="2"
+                        maxlength="300"
+                        placeholder="想逛老街，找家安静的咖啡馆…"
+                      ></textarea></label
+                    ><label class="field"
+                      ><span>需要避开的 <small>选填</small></span
+                      ><textarea
+                        id="taboos"
+                        rows="2"
+                        maxlength="300"
+                        placeholder="不吃辣，不想爬山，尽量避开人群…"
+                      ></textarea>
+                    </label>
+                  </div>
+                </div>
+              </details>
+              <div class="composer-footer">
+                <span
+                  ><svg class="icon"><use href="#i-compass" /></svg
+                  >景点、天气、住宿与路线，一起安排</span
+                ><button type="submit" id="submitBtn" class="primary-button">
+                  开始规划<svg class="icon"><use href="#i-arrow" /></svg>
+                </button>
+              </div>
+              <p class="inline-error" id="formError" role="alert" hidden></p>
+            </form>
+
+            <section class="inspiration" aria-label="旅行灵感">
+              <div class="inspiration-heading">
+                <span>还没想好？从一段小旅行开始</span
+                ><span class="inspiration-line"></span>
+              </div>
+              <div class="inspiration-grid">
+                <button
+                  type="button"
+                  class="inspiration-card"
+                  data-preset="hangzhou"
+                >
+                  <span class="city-emblem emblem-green"
+                    ><svg class="icon"><use href="#i-leaf" /></svg></span
+                  ><span
+                    ><strong>去杭州，把日子放慢</strong
+                    ><small>西湖漫步 · 江南人文 · 3 天</small></span
+                  ><svg class="icon card-arrow"><use href="#i-arrow" /></svg>
+                </button>
+                <button
+                  type="button"
+                  class="inspiration-card"
+                  data-preset="chengdu"
+                >
+                  <span class="city-emblem emblem-clay"
+                    ><svg class="icon"><use href="#i-bowl" /></svg></span
+                  ><span
+                    ><strong>去成都，好好吃顿饭</strong
+                    ><small>街巷烟火 · 地道美食 · 3 天</small></span
+                  ><svg class="icon card-arrow"><use href="#i-arrow" /></svg>
+                </button>
+                <button
+                  type="button"
+                  class="inspiration-card"
+                  data-preset="beijing"
+                >
+                  <span class="city-emblem emblem-gold"
+                    ><svg class="icon"><use href="#i-building" /></svg></span
+                  ><span
+                    ><strong>去北京，走进旧时光</strong
+                    ><small>古都寻迹 · 胡同漫游 · 2 天</small></span
+                  ><svg class="icon card-arrow"><use href="#i-arrow" /></svg>
+                </button>
+              </div>
+            </section>
+            <div class="home-utilities">
+              <button type="button" class="ghost-button" id="openDemoBtn">
+                查看示例行程</button
+              ><button type="button" class="ghost-button" data-import-trip>
+                导入行程备份</button
+              ><small>示例无需配置 API Key</small>
+            </div>
+            <p class="home-footnote">每一份好行程，都从一点好奇开始。</p>
+          </div>
+        </section>
+
+        <div id="taskRecoveryBanner" class="task-recovery" role="status" hidden>
+          <p id="taskRecoveryMessage">上次提交的任务尚未取回，可以继续查看。</p>
+          <button type="button" class="ghost-button" id="resumeTaskBtn">
+            继续查看
+          </button>
+          <button type="button" class="ghost-button" id="dismissTaskRecovery">
+            稍后查看
+          </button>
+        </div>
+        <input
+          type="file"
+          id="tripImportFile"
+          accept=".json,application/json"
+          aria-label="选择行程备份"
+          hidden
+        />
+        <section id="resultPage" class="page" aria-labelledby="resultHeading">
+          <div class="result-shell">
+            <header class="result-topbar">
+              <div>
+                <div class="result-eyebrow" id="tripDateLabel">
+                  你的专属旅行
+                </div>
+                <h1 id="resultHeading">正在构思一段好旅程</h1>
+              </div>
+              <div class="result-actions">
+                <details id="tripMore" class="trip-more" hidden>
+                  <summary class="ghost-button">更多</summary>
+                  <div class="trip-more-menu">
+                    <button type="button" id="backupTripBtn">
+                      备份行程 JSON</button
+                    ><button type="button" data-import-trip>
+                      导入行程备份
+                    </button>
+                  </div>
+                </details>
+                <button
+                  type="button"
+                  class="ghost-button"
+                  id="openRevisionBtn"
+                  aria-expanded="false"
+                  aria-controls="revisionPanel"
+                  hidden
+                >
+                  调整行程
+                </button>
+                <span id="runState" class="badge" role="status">等待输入</span
+                ><button type="button" class="ghost-button" id="backToFormBtn">
+                  <svg class="icon"><use href="#i-edit" /></svg>调整需求</button
+                ><button
+                  type="button"
+                  class="ghost-button"
+                  id="exportBtn"
+                  hidden
+                >
+                  <svg class="icon"><use href="#i-download" /></svg>导出
+                </button>
+              </div>
+            </header>
+            <div id="demoNotice" class="demo-notice" hidden>
+              <p>
+                <strong>历史示例 · 只读</strong><br />旅行日期与资料记录于
+                <span id="demoRecordedAt">2026-10-24</span
+                >；天气、费用及开放信息均为当时记录。当前未调用模型或实时查询，可调整需求生成自己的行程。
+              </p>
+            </div>
+            <div
+              id="progressPanel"
+              class="progress-panel"
+              role="status"
+              aria-live="polite"
+              hidden
+            >
+              <div class="progress-head">
+                <span class="progress-orbit"
+                  ><svg class="icon"><use href="#i-compass" /></svg
+                ></span>
+                <div>
+                  <div id="progressTitle" class="progress-title">准备规划…</div>
+                  <div id="progressDetail" class="progress-detail">
+                    正在整理你的旅行需求
+                  </div>
+                </div>
+                <span id="progressPercent" class="progress-percent">0%</span>
+              </div>
+              <div class="progress-track">
+                <div id="progressFill" class="progress-fill"></div>
+              </div>
+              <div id="progressSteps" class="progress-steps">
+                <span data-step="0">理解需求</span
+                ><span data-step="1">探索目的地</span
+                ><span data-step="2">编排行程</span
+                ><span data-step="3">完善路线</span>
+              </div>
+            </div>
+            <div id="resultWorkbench" class="result-workbench">
+              <div class="report-column">
+                <nav
+                  id="resultNav"
+                  class="result-nav"
+                  aria-label="行程内容"
+                  hidden
+                >
+                  <button
+                    type="button"
+                    class="nav-link active"
+                    data-target="overview"
+                  >
+                    行程总览</button
+                  ><button type="button" class="nav-link" data-target="days">
+                    每日安排</button
+                  ><button type="button" class="nav-link" data-target="hotel">
+                    住宿建议</button
+                  ><button type="button" class="nav-link" data-target="budget">
+                    旅行预算</button
+                  ><button type="button" class="nav-link" data-target="risks">
+                    出行提醒
+                  </button>
+                </nav>
+                <div id="revisionSummary" class="revision-summary" hidden></div>
+                <div id="resultView" class="result-view empty">
+                  <div class="planning-placeholder">
+                    <svg class="icon"><use href="#i-map" /></svg>
+                    <h2>好行程，值得一点等待</h2>
+                    <p>正在为你寻找值得停留的地方。</p>
+                    <div class="skeleton-line"></div>
+                    <div class="skeleton-line short"></div>
+                  </div>
+                </div>
+                <details id="sourceDetails" class="source-details" hidden>
+                  <summary>
+                    查看行程数据来源<svg class="icon chevron">
+                      <use href="#i-chevron" />
+                    </svg>
+                  </summary>
+                  <div id="sourceBar" class="source-bar"></div>
+                  <a
+                    id="taskTraceLink"
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                    hidden
+                    >查看本次运行统计</a
+                  >
+                  <p>
+                    模型建议、样例与估算数据已分别标注。出发前请核实营业时间、票价与天气。
+                  </p>
+                </details>
+              </div>
+              <aside
+                id="revisionPanel"
+                class="conversation-panel"
+                aria-labelledby="revisionHeading"
+                hidden
+              >
+                <header class="conversation-header">
+                  <div>
+                    <span class="conversation-kicker">一起，把旅行打磨好</span>
+                    <h2 id="revisionHeading">继续聊聊这趟旅行</h2>
+                  </div>
+                  <button
+                    type="button"
+                    id="closeRevisionBtn"
+                    class="drawer-close"
+                    aria-label="关闭行程调整"
+                  >
+                    ×
+                  </button>
+                </header>
+                <div class="conversation-version">
+                  <span id="revisionVersion">初始版本</span
+                  ><button
+                    id="undoRevisionBtn"
+                    type="button"
+                    class="text-button"
+                    disabled
+                  >
+                    撤销上次调整
+                  </button>
+                </div>
+                <div
+                  id="revisionMessages"
+                  class="conversation-messages"
+                  role="log"
+                  aria-label="行程调整对话"
+                  aria-live="polite"
+                ></div>
+                <div
+                  id="revisionProgress"
+                  class="revision-progress"
+                  role="status"
+                  hidden
+                ></div>
+                <form id="revisionForm" class="conversation-form">
+                  <label class="sr-only" for="revisionInput"
+                    >想怎样调整行程</label
+                  >
+                  <textarea
+                    id="revisionInput"
+                    rows="3"
+                    maxlength="600"
+                    placeholder="第二天轻松些，最多两个景点…"
+                    required
+                  ></textarea>
+                  <div class="conversation-composer-footer">
+                    <span>基于当前行程调整</span
+                    ><button
+                      id="revisionSendBtn"
+                      type="submit"
+                      class="revision-send"
+                    >
+                      发送调整 <span aria-hidden="true">↑</span>
+                    </button>
+                  </div>
+                </form>
+                <div
+                  id="revisionError"
+                  class="revision-error"
+                  role="alert"
+                  hidden
+                ></div>
+                <div
+                  class="revision-suggestions"
+                  role="group"
+                  aria-label="调整灵感"
+                >
+                  <button
+                    type="button"
+                    data-revision-suggestion="第二天轻松一些，最多安排两个景点。"
+                  >
+                    第二天轻松点
+                  </button>
+                  <button
+                    type="button"
+                    data-revision-suggestion="每天最多安排两个景点，公共交通优先少走路。"
+                  >
+                    少走路的安排
+                  </button>
+                  <button
+                    type="button"
+                    data-revision-suggestion="请解释当前行程里，哪一项花费最高，有什么节省建议？"
+                  >
+                    看看怎么省预算
+                  </button>
+                </div>
+                <p class="conversation-footnote">
+                  日期、城市与人数可在“调整需求”中修改。最近 5 次调整可撤销。
+                </p>
+              </aside>
+            </div>
+          </div>
+        </section>
+      </main>
+      <div id="toast" class="toast" role="status" hidden></div>
+    </div>
+    <div id="revisionBackdrop" class="revision-backdrop" hidden></div>
+    <script src="/places.js?v=20261024-portfolio-v2"></script>
+    <dialog
+      id="stopEditDialog"
+      class="stop-edit-dialog"
+      aria-labelledby="stopEditHeading"
+      aria-describedby="stopEditScope"
+    >
+      <header class="stop-edit-header">
+        <div>
+          <p class="stop-edit-kicker">旅行，可以有另一个答案</p>
+          <h2 id="stopEditHeading">换个选择</h2>
+        </div>
+        <button
+          type="button"
+          id="stopEditClose"
+          class="drawer-close"
+          aria-label="关闭地点候选"
+          autofocus
+        >
+          ×
+        </button>
+      </header>
+      <div class="stop-edit-current">
+        <span>当前安排</span><strong id="stopEditOriginal"></strong>
+      </div>
+      <p id="stopEditScope" class="stop-edit-scope"></p>
+      <p
+        id="stopEditStatus"
+        class="stop-edit-status"
+        role="status"
+        aria-live="polite"
+      ></p>
+      <div id="stopEditCandidates" class="stop-candidate-list"></div>
+      <p class="stop-edit-footnote">
+        地图地点来自实时检索；费用为参考估算，开放、预约与房态请提前确认。候选保留
+        10 分钟。
+      </p>
+    </dialog>
+    <script src="/stop-edit.js?v=20261024-portfolio-v2"></script>
+    <script src="/task-client.js?v=20261024-portfolio-v2"></script>
+    <script src="/portfolio.js?v=20261024-portfolio-v2"></script>
+    <script src="/app.js?v=20261024-portfolio-v2"></script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+[
+  {"id":"recorded-control","description":"真实录制行程仅有开放规则待确认","errors":0,"expect":["opening_unknown"],"absent":["schedule","budget_ledger"]},
+  {"id":"stale-verdict-control","description":"重新解析最终时段而非信任缓存的未知结论","edits":[["plan.daily_plans.0.items.5.opening_check.raw_text","全天开放"]],"status":"passed","errors":0,"absent":["opening_unknown"]},
+  {"id":"date-mismatch","description":"识别行程日期偏离需求","edits":[["plan.daily_plans.0.date","2026-10-25"]],"expect":["dates","weather_date"]},
+  {"id":"city-mismatch","description":"识别城市偏离需求","edits":[["plan.city","杭州"]],"expect":["dates"]},
+  {"id":"overlap","description":"识别景点与前一交通段重叠","edits":[["plan.daily_plans.0.items.3.time_range","08:30-10:30"]],"expect":["schedule"]},
+  {"id":"bad-time","description":"识别无法解析的时间","edits":[["plan.daily_plans.0.items.3.time_range","上午"]],"expect":["schedule"]},
+  {"id":"short-visit","description":"不得截短完整建议停留时间","edits":[["plan.daily_plans.0.items.3.time_range","09:14-09:30"]],"expect":["visit_duration"]},
+  {"id":"transport-duration","description":"交通时段必须等于实际耗时","edits":[["plan.daily_plans.0.items.0.duration_min",10]],"expect":["transport_duration"]},
+  {"id":"arrival-buffer","description":"识别交通到达后没有留出缓冲","edits":[["plan.daily_plans.0.items.3.time_range","09:02-11:02"]],"expect":["schedule"]},
+  {"id":"closed","description":"闭馆规则必须阻止提交","edits":[["plan.daily_plans.0.items.3.opening_check.raw_text","闭馆"]],"expect":["opening_conflict"]},
+  {"id":"opening-window","description":"识别游玩超出开放时段","edits":[["plan.daily_plans.0.items.3.opening_check.raw_text","每天 13:00-17:00"]],"expect":["opening_conflict"]},
+  {"id":"unknown-opening","description":"无规则应提示确认，不应推断已开放","edits":[["plan.daily_plans.0.items.3.opening_check.raw_text",""]],"expect":["opening_unknown"],"errors":0,"absent":["opening_conflict"]},
+  {"id":"ungrounded-place","description":"识别候选池之外的景点","edits":[["plan.daily_plans.0.items.3.location_name","不存在的候选"]],"expect":["grounding","attraction_overview"]},
+  {"id":"duplicate-meal","description":"同一天不能有两次同餐别安排","edits":[["plan.daily_plans.0.items.5.meal_type","breakfast"]],"expect":["meal_duplicate","meal_missing","meal_window"]},
+  {"id":"missing-weather","description":"天气缺失明确提示，保持行程可读","edits":[["plan.daily_plans.0.weather.high_c",null],["plan.daily_plans.0.weather.low_c",null]],"errors":0,"expect":["weather_unavailable"]},
+  {"id":"budget-sum","description":"识别总预算与各类别相加不符","edits":[["plan.budget.total",999]],"expect":["budget_sum"]},
+  {"id":"budget-ledger","description":"识别分类金额与实际安排不符","edits":[["plan.budget.food",227],["plan.budget.total",661.96]],"expect":["budget_ledger"],"absent":["budget_sum"]},
+  {"id":"over-budget","description":"超预算保留明确提醒，不能伪称预算满足","edits":[["request.budget_min",100],["request.budget_max",500]],"errors":0,"expect":["budget_limit"]},
+  {"id":"room-count","description":"人数变化后复核实际房间数账目","edits":[["request.travelers",3]],"expect":["budget_ledger"]},
+  {"id":"missing-stay","description":"住宿链必须覆盖全部日期","edits":[["plan.daily_stays",[]]],"expect":["stay_dates","stay_nights","budget_ledger"]}
+]

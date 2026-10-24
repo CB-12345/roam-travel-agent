@@ -1,0 +1,124 @@
+{
+  "tested_at": "2026-10-24T05:23:31.469682+00:00",
+  "scope": "Explicit real provider smoke cases. Small convenience sample, not general accuracy or availability.",
+  "cases": [
+    {
+      "id": "hangzhou-two-days",
+      "description": "杭州两日慢游，包含指定日期修改与地点锁定验证",
+      "request": {
+        "city": "杭州",
+        "budget_min": 1800,
+        "budget_max": 3200,
+        "travelers": 2,
+        "pace": "relaxed",
+        "hotel_style": "comfort",
+        "transport_mode": "public_transit",
+        "preferences": [
+          "humanity",
+          "nature"
+        ],
+        "extra_preferences": "每天1到2个景点，完整游玩，优先西湖周边，少折返",
+        "start_date": "2026-10-25",
+        "end_date": "2026-10-26"
+      },
+      "passed": true,
+      "task_status": "completed",
+      "run": {
+        "elapsed_seconds": 52.634,
+        "failed_calls": 0,
+        "http_calls": 49,
+        "input_tokens": 27102,
+        "llm_calls": 8,
+        "output_tokens": 3819,
+        "token_reports": 8,
+        "tool_calls": 8
+      },
+      "errors": [],
+      "quality": {
+        "version": "1.0",
+        "status": "needs_confirmation",
+        "checked_at": "2026-10-24T05:24:24.851762+00:00",
+        "errors": 0,
+        "warnings": 1,
+        "metrics": {
+          "days": 2,
+          "stops": 8,
+          "stops_with_coordinates": 8,
+          "meals": 6,
+          "concrete_meals": 6,
+          "opening_fits": 5,
+          "opening_unknown": 3,
+          "weather_unknown_days": 0
+        },
+        "issues": [
+          {
+            "code": "opening_unknown",
+            "severity": "warning",
+            "message": "3 处地点的开放时间需要进一步确认。",
+            "day_index": null
+          }
+        ],
+        "note": "检查日期、时间、账目和资料完整度；不代表实时营业、预约库存或实际成交价保证。"
+      },
+      "planning_source": "llm_generated",
+      "weather_data_source": "live_qweather",
+      "budget_total": 898.56,
+      "attractions": [
+        "杭州西湖风景名胜区",
+        "西湖博物馆"
+      ],
+      "revision": {
+        "passed": true,
+        "errors": [],
+        "quality": {
+          "version": "1.0",
+          "status": "needs_confirmation",
+          "checked_at": "2026-10-24T05:24:49.668050+00:00",
+          "errors": 0,
+          "warnings": 1,
+          "metrics": {
+            "days": 2,
+            "stops": 8,
+            "stops_with_coordinates": 8,
+            "meals": 6,
+            "concrete_meals": 6,
+            "opening_fits": 5,
+            "opening_unknown": 3,
+            "weather_unknown_days": 0
+          },
+          "issues": [
+            {
+              "code": "opening_unknown",
+              "severity": "warning",
+              "message": "3 处地点的开放时间需要进一步确认。",
+              "day_index": null
+            }
+          ],
+          "note": "检查日期、时间、账目和资料完整度；不代表实时营业、预约库存或实际成交价保证。"
+        },
+        "planning_source": "llm_generated",
+        "weather_data_source": "live_qweather",
+        "budget_total": 914.76,
+        "attractions": [
+          "杭州西湖风景名胜区",
+          "西湖博物馆"
+        ],
+        "unchanged_first_day": true,
+        "status": "revised",
+        "run": {
+          "elapsed_seconds": 24.437,
+          "failed_calls": 0,
+          "http_calls": 23,
+          "input_tokens": 9377,
+          "llm_calls": 3,
+          "output_tokens": 2186,
+          "token_reports": 3,
+          "tool_calls": 0
+        }
+      }
+    }
+  ],
+  "total": 1,
+  "passed": 1,
+  "attempts": 2
+}

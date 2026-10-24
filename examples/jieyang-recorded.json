@@ -1,0 +1,1770 @@
+{
+  "version": 1,
+  "request": {
+    "city": "揭阳",
+    "start_date": "2026-10-24",
+    "end_date": "2026-10-24",
+    "budget_min": 1500,
+    "budget_max": 2500,
+    "preferences": [
+      "humanity",
+      "food"
+    ],
+    "extra_preferences": "优先榕城区古城文化，少折返",
+    "taboos": "",
+    "travelers": 2,
+    "pace": "balanced",
+    "hotel_style": "comfort",
+    "transport_mode": "public_transit",
+    "transit_preference": "recommended",
+    "departure_city": "",
+    "trip_days": 1,
+    "stay_nights": 1
+  },
+  "plan": {
+    "city": "揭阳",
+    "travel_theme": "榕城古城人文与美食慢游",
+    "overview": "揭阳 1 日行程，共安排 2 处景点、1 晚住宿。已校验每日安排的游玩、用餐与交通时间冲突，并核对可获取的常规开放时段；预约与临时调整请出发前确认。",
+    "trip_days": 1,
+    "planning_source": "recorded_demo",
+    "attraction_data_source": "recorded_demo",
+    "weather_data_source": "recorded_demo",
+    "hotel_data_source": "recorded_demo",
+    "attraction_search_plan": [],
+    "preference_interpretation": {},
+    "agent_diagnostics": {},
+    "quality_report": {
+      "version": "1.0",
+      "status": "needs_confirmation",
+      "checked_at": "2026-10-24T04:48:24.595645+00:00",
+      "errors": 0,
+      "warnings": 1,
+      "metrics": {
+        "days": 1,
+        "stops": 5,
+        "stops_with_coordinates": 5,
+        "meals": 3,
+        "concrete_meals": 3,
+        "opening_fits": 4,
+        "opening_unknown": 1,
+        "weather_unknown_days": 0
+      },
+      "issues": [
+        {
+          "code": "opening_unknown",
+          "severity": "warning",
+          "message": "1 处地点的开放时间需要进一步确认。",
+          "day_index": null
+        }
+      ],
+      "note": "检查日期、时间、账目和资料完整度；不代表实时营业、预约库存或实际成交价保证。"
+    },
+    "selected_attractions": [
+      {
+        "candidate_id": "B029700E9V",
+        "source_query": "学宫",
+        "score": 94.0,
+        "matched_preferences": [
+          "人文与历史",
+          "优先榕城区古城文化",
+          "少折返"
+        ],
+        "taboo_check": "无负向约束冲突；非登山徒步类，步行强度低，全程平地院落，符合 balanced 节奏",
+        "name": "揭阳学宫",
+        "category": "学宫",
+        "tags": [
+          "学宫",
+          "学宫"
+        ],
+        "summary": "潮汕地区规模最大的孔庙建筑群，是揭阳人文脉络的核心；位于榕城韩祠路，与进贤门、骑楼街同片，适合作为上午第一站深看，无需折返。",
+        "recommended_hours": 2.0,
+        "ticket_price": 0.0,
+        "best_time": "daytime",
+        "location": {
+          "name": "揭阳学宫",
+          "address": "韩祠路7号",
+          "lat": 23.535795,
+          "lng": 116.355961
+        }
+      },
+      {
+        "candidate_id": "B0FFL3A6KT",
+        "source_query": "古城",
+        "score": 92.0,
+        "matched_preferences": [
+          "人文与历史",
+          "美食探索",
+          "优先榕城区古城文化",
+          "少折返"
+        ],
+        "taboo_check": "无负向约束；平缓街区步行，无爬升；无饮食限制，沿街小吃均可尝试",
+        "name": "揭阳古城中山骑楼街",
+        "category": "古城",
+        "tags": [
+          "古城",
+          "古城"
+        ],
+        "summary": "骑楼建筑群兼具历史街区与市井商业属性，一街之内既看老城立面又能连续觅食粿品、茶点、牛肉小吃，是把人文与美食合并到一个点位的最优解，且与学宫、进贤门步行串联。",
+        "recommended_hours": 1.5,
+        "ticket_price": 0.0,
+        "best_time": "daytime",
+        "location": {
+          "name": "揭阳古城中山骑楼街",
+          "address": "望江北路26号",
+          "lat": 23.533416,
+          "lng": 116.353638
+        }
+      }
+    ],
+    "recommended_hotel": {
+      "name": "维也纳酒店(揭阳榕城进贤门城楼店)",
+      "style": "comfort",
+      "star_level": 3,
+      "nightly_price": 380.0,
+      "nightly_price_min": 260.0,
+      "nightly_price_max": 500.0,
+      "price_source": "estimated_from_poi",
+      "booking_url": "",
+      "summary": "住宿服务;宾馆酒店;三星级宾馆",
+      "nearby_area": "进贤门大道梅兜路段5号",
+      "location": {
+        "name": "维也纳酒店(揭阳榕城进贤门城楼店)",
+        "address": "广东省揭阳市榕城区进贤门大道梅兜路段5号",
+        "lat": 23.533811,
+        "lng": 116.386722
+      }
+    },
+    "hotel_candidates": [
+      {
+        "name": "维也纳酒店(揭阳榕城进贤门城楼店)",
+        "style": "comfort",
+        "star_level": 3,
+        "nightly_price": 380.0,
+        "nightly_price_min": 260.0,
+        "nightly_price_max": 500.0,
+        "price_source": "estimated_from_poi",
+        "booking_url": "",
+        "summary": "住宿服务;宾馆酒店;三星级宾馆",
+        "nearby_area": "进贤门大道梅兜路段5号",
+        "location": {
+          "name": "维也纳酒店(揭阳榕城进贤门城楼店)",
+          "address": "广东省揭阳市榕城区进贤门大道梅兜路段5号",
+          "lat": 23.533811,
+          "lng": 116.386722
+        }
+      }
+    ],
+    "daily_stays": [
+      {
+        "day_index": 1,
+        "date": "2026-10-24",
+        "start_hotel": {
+          "name": "维也纳酒店(揭阳榕城进贤门城楼店)",
+          "style": "comfort",
+          "star_level": 3,
+          "nightly_price": 380.0,
+          "nightly_price_min": 260.0,
+          "nightly_price_max": 500.0,
+          "price_source": "estimated_from_poi",
+          "booking_url": "",
+          "summary": "住宿服务;宾馆酒店;三星级宾馆",
+          "nearby_area": "进贤门大道梅兜路段5号",
+          "location": {
+            "name": "维也纳酒店(揭阳榕城进贤门城楼店)",
+            "address": "广东省揭阳市榕城区进贤门大道梅兜路段5号",
+            "lat": 23.533811,
+            "lng": 116.386722
+          }
+        },
+        "end_hotel": {
+          "name": "维也纳酒店(揭阳榕城进贤门城楼店)",
+          "style": "comfort",
+          "star_level": 3,
+          "nightly_price": 380.0,
+          "nightly_price_min": 260.0,
+          "nightly_price_max": 500.0,
+          "price_source": "estimated_from_poi",
+          "booking_url": "",
+          "summary": "住宿服务;宾馆酒店;三星级宾馆",
+          "nearby_area": "进贤门大道梅兜路段5号",
+          "location": {
+            "name": "维也纳酒店(揭阳榕城进贤门城楼店)",
+            "address": "广东省揭阳市榕城区进贤门大道梅兜路段5号",
+            "lat": 23.533811,
+            "lng": 116.386722
+          }
+        },
+        "night_area": "进贤门大道梅兜路段5号",
+        "charged_night": true,
+        "hotel_changed": false,
+        "reason": "本行程仅1天且需过夜1晚，安排入住榕城区进贤门附近的舒适型酒店，便于步行串联古城景点并减少折返。"
+      }
+    ],
+    "daily_plans": [
+      {
+        "date": "2026-10-24",
+        "weather": {
+          "date": "2026-10-24",
+          "condition": "多云",
+          "high_c": 31,
+          "low_c": 23,
+          "suggestion": "注意补水与防晒，减少午后连续户外活动。",
+          "data_source": "live_qweather"
+        },
+        "route_summary": "揭阳学宫、揭阳古城中山骑楼街 | 公共交通合计约106分钟",
+        "meal_intents": [
+          {
+            "meal_type": "breakfast",
+            "time_range": "07:40-08:20",
+            "anchor_name": "维也纳酒店(揭阳榕城进贤门城楼店)",
+            "anchor_type": "hotel",
+            "cuisine_intent": "潮汕本地早餐，粥粉面、粿汁或肠粉，清淡少辣",
+            "budget_total": 60.0,
+            "must_avoid": [],
+            "reason": "早餐就近在入住酒店周边解决，方便随后前往揭阳学宫，不额外折返。"
+          },
+          {
+            "meal_type": "lunch",
+            "time_range": "11:30-12:30",
+            "anchor_name": "揭阳学宫",
+            "anchor_type": "attraction",
+            "cuisine_intent": "本地潮汕家常菜与粿品，口味清淡少油，适合两人午餐",
+            "budget_total": 120.0,
+            "must_avoid": [],
+            "reason": "午餐锚定上午游览的学宫附近，便于饭后稍作休息再前往中山骑楼街。"
+          },
+          {
+            "meal_type": "dinner",
+            "time_range": "17:30-18:30",
+            "anchor_name": "进贤门大道梅兜路段5号",
+            "anchor_type": "night_area",
+            "cuisine_intent": "潮汕牛肉粿条、卤味、时蔬或清蒸类本地菜，少辣不重口",
+            "budget_total": 200.0,
+            "must_avoid": [],
+            "reason": "晚餐回到酒店与进贤门周边解决，延续美食探索偏好，也方便晚间休息。"
+          }
+        ],
+        "items": [
+          {
+            "time_range": "07:00-07:03",
+            "title": "维也纳酒店(揭阳榕城进贤门城楼店) -> 金味园烘焙(凤林桥店)",
+            "item_type": "transport",
+            "meal_type": "",
+            "location_name": "金味园烘焙(凤林桥店)",
+            "location_address": "进贤门大道梅兜村安全文明小区西侧",
+            "location": {
+              "name": "金味园烘焙(凤林桥店)",
+              "address": "广东省揭阳市榕城区进贤门大道梅兜村安全文明小区西侧",
+              "lat": 23.534644,
+              "lng": 116.385147
+            },
+            "opening_check": null,
+            "summary": "公共交通约3分钟，0.3公里，约 0 元，换乘 0 次，步行 273 米",
+            "estimated_cost": 0.0,
+            "reason": "公共交通无可用方案且距离较短，已改用高德实时步行路线。",
+            "is_route_stop": true,
+            "transport_mode": "公共交通",
+            "from_location": "维也纳酒店(揭阳榕城进贤门城楼店)",
+            "to_location": "金味园烘焙(凤林桥店)",
+            "duration_min": 3,
+            "distance_km": 0.3,
+            "transfers": 0,
+            "route_segments": [
+              {
+                "segment_type": "walk",
+                "instruction": "向西北步行28米左转",
+                "duration_min": 0,
+                "distance_m": 28,
+                "line_name": "",
+                "direction": "",
+                "on_station": "",
+                "off_station": "",
+                "via_count": 0,
+                "via_stops": [],
+                "entrance": "",
+                "exit": "",
+                "details": {
+                  "road": [],
+                  "orientation": "西北"
+                }
+              },
+              {
+                "segment_type": "walk",
+                "instruction": "沿进贤门大道向西步行160米右转",
+                "duration_min": 2,
+                "distance_m": 160,
+                "line_name": "",
+                "direction": "",
+                "on_station": "",
+                "off_station": "",
+                "via_count": 0,
+                "via_stops": [],
+                "entrance": "",
+                "exit": "",
+                "details": {
+                  "road": "进贤门大道",
+                  "orientation": "西"
+                }
+              },
+              {
+                "segment_type": "walk",
+                "instruction": "向北步行85米到达目的地",
+                "duration_min": 1,
+                "distance_m": 85,
+                "line_name": "",
+                "direction": "",
+                "on_station": "",
+                "off_station": "",
+                "via_count": 0,
+                "via_stops": [],
+                "entrance": "",
+                "exit": "",
+                "details": {
+                  "road": [],
+                  "orientation": "北"
+                }
+              }
+            ],
+            "route_strategy": "短距离步行",
+            "route_data_mode": "live_walk",
+            "route_fallback_reason": "amap_transit_empty,short_distance_walk_api",
+            "route_alternatives": [],
+            "expandable": true
+          },
+          {
+            "time_range": "07:40-08:20",
+            "title": "金味园烘焙(凤林桥店)",
+            "item_type": "meal",
+            "meal_type": "breakfast",
+            "location_name": "金味园烘焙(凤林桥店)",
+            "location_address": "进贤门大道梅兜村安全文明小区西侧",
+            "location": {
+              "name": "金味园烘焙(凤林桥店)",
+              "address": "广东省揭阳市榕城区进贤门大道梅兜村安全文明小区西侧",
+              "lat": 23.534644,
+              "lng": 116.385147
+            },
+            "opening_check": {
+              "date": "2026-10-24",
+              "time_range": "07:40-08:20",
+              "status": "fits",
+              "hours_text": "06:30–23:00",
+              "message": "安排在开放时段内",
+              "raw_text": "周一至周日 06:30-23:00",
+              "source": "高德地点开放时间",
+              "checked_at": "2026-10-24T04:14:46.604505+00:00"
+            },
+            "summary": "早餐建议：潮汕本地早餐，粥粉面、粿汁或肠粉，清淡少辣。早餐就近在入住酒店周边解决，方便随后前往揭阳学宫，不额外折返。",
+            "estimated_cost": 70.0,
+            "reason": "早餐就近在入住酒店周边解决，方便随后前往揭阳学宫，不额外折返。",
+            "is_route_stop": true,
+            "transport_mode": "",
+            "from_location": "",
+            "to_location": "",
+            "duration_min": 0,
+            "distance_km": 0.0,
+            "transfers": 0,
+            "route_segments": [],
+            "route_strategy": "",
+            "route_data_mode": "",
+            "route_fallback_reason": "",
+            "route_alternatives": [],
+            "expandable": false
+          },
+          {
+            "time_range": "08:20-09:02",
+            "title": "金味园烘焙(凤林桥店) -> 揭阳学宫",
+            "item_type": "transport",
+            "meal_type": "",
+            "location_name": "揭阳学宫",
+            "location_address": "韩祠路7号",
+            "location": {
+              "name": "揭阳学宫",
+              "address": "广东省揭阳市榕城区韩祠路7号",
+              "lat": 23.535795,
+              "lng": 116.355961
+            },
+            "opening_check": null,
+            "summary": "公共交通约42分钟，3.3公里，约 3 元，换乘 0 次，步行 1148 米",
+            "estimated_cost": 3.0,
+            "reason": "高德实时公共交通路线，策略：推荐。",
+            "is_route_stop": true,
+            "transport_mode": "公共交通",
+            "from_location": "金味园烘焙(凤林桥店)",
+            "to_location": "揭阳学宫",
+            "duration_min": 42,
+            "distance_km": 3.3,
+            "transfers": 0,
+            "route_segments": [
+              {
+                "segment_type": "walk",
+                "instruction": "步行66米左转；沿进贤门大道步行43米到达梅兜村",
+                "duration_min": 1,
+                "distance_m": 109,
+                "line_name": "",
+                "direction": "",
+                "on_station": "",
+                "off_station": "",
+                "via_count": 0,
+                "via_stops": [],
+                "entrance": "",
+                "exit": "",
+                "details": {}
+              },
+              {
+                "segment_type": "bus",
+                "instruction": "乘坐公交1路(揭阳一中新城学校--岐山车站)，从梅兜村上车，到进贤门市场下车",
+                "duration_min": 21,
+                "distance_m": 2123,
+                "line_name": "1路(揭阳一中新城学校--岐山车站)",
+                "direction": "揭阳一中新城学校--岐山车站",
+                "on_station": "梅兜村",
+                "off_station": "进贤门市场",
+                "via_count": 3,
+                "via_stops": [
+                  "凤林村",
+                  "邱金元中学",
+                  "市中医院"
+                ],
+                "entrance": "",
+                "exit": "",
+                "details": {}
+              },
+              {
+                "segment_type": "walk",
+                "instruction": "沿进贤门大道步行693米向左前方直行；步行33米向右前方直行；步行38米向右前方直行；沿东环城路步行14米向左前方直行；沿思贤路步行194米右转；步行20米左转；步行30米向左前方直行；步行11米向右前方直行；步行6米左转到达目的地",
+                "duration_min": 18,
+                "distance_m": 1039,
+                "line_name": "",
+                "direction": "",
+                "on_station": "",
+                "off_station": "",
+                "via_count": 0,
+                "via_stops": [],
+                "entrance": "",
+                "exit": "",
+                "details": {}
+              }
+            ],
+            "route_strategy": "推荐",
+            "route_data_mode": "live",
+            "route_fallback_reason": "",
+            "route_alternatives": [
+              {
+                "lines": [
+                  "1路(揭阳一中新城学校--岐山车站)",
+                  "10路(乌美村(吉祥寺)--揭阳进贤门)"
+                ],
+                "duration_min": 44,
+                "distance_km": 3.6,
+                "cost": 6.0,
+                "walk_distance_m": 815,
+                "transfers": 1,
+                "route_segments": [
+                  {
+                    "segment_type": "walk",
+                    "instruction": "步行66米左转；沿进贤门大道步行43米到达梅兜村",
+                    "duration_min": 1,
+                    "distance_m": 109,
+                    "line_name": "",
+                    "direction": "",
+                    "on_station": "",
+                    "off_station": "",
+                    "via_count": 0,
+                    "via_stops": [],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  },
+                  {
+                    "segment_type": "bus",
+                    "instruction": "乘坐公交1路(揭阳一中新城学校--岐山车站)，从梅兜村上车，到进贤门市场下车",
+                    "duration_min": 21,
+                    "distance_m": 2123,
+                    "line_name": "1路(揭阳一中新城学校--岐山车站)",
+                    "direction": "揭阳一中新城学校--岐山车站",
+                    "on_station": "梅兜村",
+                    "off_station": "进贤门市场",
+                    "via_count": 3,
+                    "via_stops": [
+                      "凤林村",
+                      "邱金元中学",
+                      "市中医院"
+                    ],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  },
+                  {
+                    "segment_type": "walk",
+                    "instruction": "沿进贤门大道步行285米到达东风广场",
+                    "duration_min": 4,
+                    "distance_m": 285,
+                    "line_name": "",
+                    "direction": "",
+                    "on_station": "",
+                    "off_station": "",
+                    "via_count": 0,
+                    "via_stops": [],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  },
+                  {
+                    "segment_type": "bus",
+                    "instruction": "乘坐公交10路(乌美村(吉祥寺)--揭阳进贤门)，从东风广场上车，到揭阳进贤门下车",
+                    "duration_min": 7,
+                    "distance_m": 647,
+                    "line_name": "10路(乌美村(吉祥寺)--揭阳进贤门)",
+                    "direction": "乌美村(吉祥寺)--揭阳进贤门",
+                    "on_station": "东风广场",
+                    "off_station": "揭阳进贤门",
+                    "via_count": 0,
+                    "via_stops": [],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  },
+                  {
+                    "segment_type": "walk",
+                    "instruction": "步行83米左转；步行25米向右前方直行；步行38米向右前方直行；沿东环城路步行14米向左前方直行；沿思贤路步行194米右转；步行20米左转；步行30米向左前方直行；步行11米向右前方直行；步行6米左转到达目的地",
+                    "duration_min": 8,
+                    "distance_m": 421,
+                    "line_name": "",
+                    "direction": "",
+                    "on_station": "",
+                    "off_station": "",
+                    "via_count": 0,
+                    "via_stops": [],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  }
+                ]
+              },
+              {
+                "lines": [
+                  "新能源3号线(市综合中专--龙尾高新区总站)"
+                ],
+                "duration_min": 65,
+                "distance_km": 5.9,
+                "cost": 2.0,
+                "walk_distance_m": 2123,
+                "transfers": 0,
+                "route_segments": [
+                  {
+                    "segment_type": "walk",
+                    "instruction": "步行66米左转；沿进贤门大道步行405米向左前方直行进入右转专用道；沿进贤门大道步行43米右转；沿进贤门大道步行57米向左前方直行；步行72米右转；步行268米到达梅兜学校",
+                    "duration_min": 12,
+                    "distance_m": 911,
+                    "line_name": "",
+                    "direction": "",
+                    "on_station": "",
+                    "off_station": "",
+                    "via_count": 0,
+                    "via_stops": [],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  },
+                  {
+                    "segment_type": "bus",
+                    "instruction": "乘坐公交新能源3号线(市综合中专--龙尾高新区总站)，从梅兜学校上车，到揭阳市人民医院下车",
+                    "duration_min": 32,
+                    "distance_m": 3758,
+                    "line_name": "新能源3号线(市综合中专--龙尾高新区总站)",
+                    "direction": "市综合中专--龙尾高新区总站",
+                    "on_station": "梅兜学校",
+                    "off_station": "揭阳市人民医院",
+                    "via_count": 3,
+                    "via_stops": [
+                      "水岸花城",
+                      "江南翰林轩",
+                      "江南新城"
+                    ],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  },
+                  {
+                    "segment_type": "walk",
+                    "instruction": "沿临江南路步行505米向左前方直行；沿韩祠路步行47米右转；沿韩祠路步行563米左转；沿思贤路步行30米左转；步行20米左转；步行30米向左前方直行；步行11米向右前方直行；步行6米左转到达目的地",
+                    "duration_min": 19,
+                    "distance_m": 1212,
+                    "line_name": "",
+                    "direction": "",
+                    "on_station": "",
+                    "off_station": "",
+                    "via_count": 0,
+                    "via_stops": [],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  }
+                ]
+              }
+            ],
+            "expandable": true
+          },
+          {
+            "time_range": "09:14-11:14",
+            "title": "揭阳学宫",
+            "item_type": "attraction",
+            "meal_type": "",
+            "location_name": "揭阳学宫",
+            "location_address": "韩祠路7号",
+            "location": {
+              "name": "揭阳学宫",
+              "address": "广东省揭阳市榕城区韩祠路7号",
+              "lat": 23.535795,
+              "lng": 116.355961
+            },
+            "opening_check": {
+              "date": "2026-10-24",
+              "time_range": "09:14-11:14",
+              "status": "fits",
+              "hours_text": "09:00–17:00",
+              "message": "安排在开放时段内",
+              "raw_text": "6月至9月 周一至周日 09:00-17:30；1月至5月,10月至12月 周一至周日 09:00-17:00",
+              "source": "高德地点开放时间",
+              "checked_at": "2026-10-24T04:14:47.179716+00:00"
+            },
+            "summary": "潮汕地区规模最大的孔庙建筑群，是揭阳人文脉络的核心，适合上午作为古城文化第一站深看。",
+            "estimated_cost": 0.0,
+            "reason": "契合人文与历史偏好，且与后续中山骑楼街同属榕城古城片区，减少折返。",
+            "is_route_stop": true,
+            "transport_mode": "",
+            "from_location": "",
+            "to_location": "",
+            "duration_min": 0,
+            "distance_km": 0.0,
+            "transfers": 0,
+            "route_segments": [],
+            "route_strategy": "",
+            "route_data_mode": "",
+            "route_fallback_reason": "",
+            "route_alternatives": [],
+            "expandable": false
+          },
+          {
+            "time_range": "11:14-11:19",
+            "title": "揭阳学宫 -> 非遗·老字号·阿彬牛肉火锅(进贤门店)",
+            "item_type": "transport",
+            "meal_type": "",
+            "location_name": "非遗·老字号·阿彬牛肉火锅(进贤门店)",
+            "location_address": "新兴街道河南社区新兴路8号-2",
+            "location": {
+              "name": "非遗·老字号·阿彬牛肉火锅(进贤门店)",
+              "address": "广东省揭阳市榕城区新兴街道河南社区新兴路8号-2",
+              "lat": 23.534854,
+              "lng": 116.358934
+            },
+            "opening_check": null,
+            "summary": "公共交通约5分钟，0.4公里，约 0 元，换乘 0 次，步行 420 米",
+            "estimated_cost": 0.0,
+            "reason": "公共交通无可用方案且距离较短，已改用高德实时步行路线。",
+            "is_route_stop": true,
+            "transport_mode": "公共交通",
+            "from_location": "揭阳学宫",
+            "to_location": "非遗·老字号·阿彬牛肉火锅(进贤门店)",
+            "duration_min": 5,
+            "distance_km": 0.4,
+            "transfers": 0,
+            "route_segments": [
+              {
+                "segment_type": "walk",
+                "instruction": "向南步行2米向右前方行走",
+                "duration_min": 0,
+                "distance_m": 2,
+                "line_name": "",
+                "direction": "",
+                "on_station": "",
+                "off_station": "",
+                "via_count": 0,
+                "via_stops": [],
+                "entrance": "",
+                "exit": "",
+                "details": {
+                  "road": [],
+                  "orientation": "南"
+                }
+              },
+              {
+                "segment_type": "walk",
+                "instruction": "向南步行45米右转",
+                "duration_min": 0,
+                "distance_m": 45,
+                "line_name": "",
+                "direction": "",
+                "on_station": "",
+                "off_station": "",
+                "via_count": 0,
+                "via_stops": [],
+                "entrance": "",
+                "exit": "",
+                "details": {
+                  "road": [],
+                  "orientation": "南"
+                }
+              },
+              {
+                "segment_type": "walk",
+                "instruction": "向南步行20米左转",
+                "duration_min": 0,
+                "distance_m": 20,
+                "line_name": "",
+                "direction": "",
+                "on_station": "",
+                "off_station": "",
+                "via_count": 0,
+                "via_stops": [],
+                "entrance": "",
+                "exit": "",
+                "details": {
+                  "road": [],
+                  "orientation": "南"
+                }
+              },
+              {
+                "segment_type": "walk",
+                "instruction": "沿思贤路向东步行208米向左前方行走",
+                "duration_min": 2,
+                "distance_m": 208,
+                "line_name": "",
+                "direction": "",
+                "on_station": "",
+                "off_station": "",
+                "via_count": 0,
+                "via_stops": [],
+                "entrance": "",
+                "exit": "",
+                "details": {
+                  "road": "思贤路",
+                  "orientation": "东"
+                }
+              },
+              {
+                "segment_type": "walk",
+                "instruction": "向东北步行63米右转",
+                "duration_min": 0,
+                "distance_m": 63,
+                "line_name": "",
+                "direction": "",
+                "on_station": "",
+                "off_station": "",
+                "via_count": 0,
+                "via_stops": [],
+                "entrance": "",
+                "exit": "",
+                "details": {
+                  "road": [],
+                  "orientation": "东北"
+                }
+              },
+              {
+                "segment_type": "walk",
+                "instruction": "沿进贤门大道向东步行82米到达目的地",
+                "duration_min": 1,
+                "distance_m": 82,
+                "line_name": "",
+                "direction": "",
+                "on_station": "",
+                "off_station": "",
+                "via_count": 0,
+                "via_stops": [],
+                "entrance": "",
+                "exit": "",
+                "details": {
+                  "road": "进贤门大道",
+                  "orientation": "东"
+                }
+              }
+            ],
+            "route_strategy": "短距离步行",
+            "route_data_mode": "live_walk",
+            "route_fallback_reason": "amap_transit_empty,short_distance_walk_api",
+            "route_alternatives": [],
+            "expandable": true
+          },
+          {
+            "time_range": "11:30-12:30",
+            "title": "非遗·老字号·阿彬牛肉火锅(进贤门店)",
+            "item_type": "meal",
+            "meal_type": "lunch",
+            "location_name": "非遗·老字号·阿彬牛肉火锅(进贤门店)",
+            "location_address": "新兴街道河南社区新兴路8号-2",
+            "location": {
+              "name": "非遗·老字号·阿彬牛肉火锅(进贤门店)",
+              "address": "广东省揭阳市榕城区新兴街道河南社区新兴路8号-2",
+              "lat": 23.534854,
+              "lng": 116.358934
+            },
+            "opening_check": {
+              "date": "2026-10-24",
+              "time_range": "11:30-12:30",
+              "status": "unknown",
+              "hours_text": "",
+              "message": "开放规则较复杂，请查看原始时间并向场所确认。",
+              "raw_text": "周一至周日 11:00-21:00 2026-10-01至2026-10-07 10:30-22:00",
+              "source": "高德地点开放时间",
+              "checked_at": "2026-10-24T04:14:47.661932+00:00"
+            },
+            "summary": "午餐建议：本地潮汕家常菜与粿品，口味清淡少油，适合两人午餐。午餐锚定上午游览的学宫附近，便于饭后稍作休息再前往中山骑楼街。",
+            "estimated_cost": 70.0,
+            "reason": "午餐锚定上午游览的学宫附近，便于饭后稍作休息再前往中山骑楼街。",
+            "is_route_stop": true,
+            "transport_mode": "",
+            "from_location": "",
+            "to_location": "",
+            "duration_min": 0,
+            "distance_km": 0.0,
+            "transfers": 0,
+            "route_segments": [],
+            "route_strategy": "",
+            "route_data_mode": "",
+            "route_fallback_reason": "",
+            "route_alternatives": [],
+            "expandable": false
+          },
+          {
+            "time_range": "12:30-12:40",
+            "title": "非遗·老字号·阿彬牛肉火锅(进贤门店) -> 揭阳古城中山骑楼街",
+            "item_type": "transport",
+            "meal_type": "",
+            "location_name": "揭阳古城中山骑楼街",
+            "location_address": "望江北路26号",
+            "location": {
+              "name": "揭阳古城中山骑楼街",
+              "address": "广东省揭阳市榕城区望江北路26号",
+              "lat": 23.533416,
+              "lng": 116.353638
+            },
+            "opening_check": null,
+            "summary": "公共交通约10分钟，0.8公里，约 0 元，换乘 0 次，步行 762 米",
+            "estimated_cost": 0.0,
+            "reason": "公共交通无可用方案且距离较短，已改用高德实时步行路线。",
+            "is_route_stop": true,
+            "transport_mode": "公共交通",
+            "from_location": "非遗·老字号·阿彬牛肉火锅(进贤门店)",
+            "to_location": "揭阳古城中山骑楼街",
+            "duration_min": 10,
+            "distance_km": 0.8,
+            "transfers": 0,
+            "route_segments": [
+              {
+                "segment_type": "walk",
+                "instruction": "沿进贤门大道向西步行82米左转",
+                "duration_min": 1,
+                "distance_m": 82,
+                "line_name": "",
+                "direction": "",
+                "on_station": "",
+                "off_station": "",
+                "via_count": 0,
+                "via_stops": [],
+                "entrance": "",
+                "exit": "",
+                "details": {
+                  "road": "进贤门大道",
+                  "orientation": "西"
+                }
+              },
+              {
+                "segment_type": "walk",
+                "instruction": "向南步行25米向右前方行走",
+                "duration_min": 0,
+                "distance_m": 25,
+                "line_name": "",
+                "direction": "",
+                "on_station": "",
+                "off_station": "",
+                "via_count": 0,
+                "via_stops": [],
+                "entrance": "",
+                "exit": "",
+                "details": {
+                  "road": [],
+                  "orientation": "南"
+                }
+              },
+              {
+                "segment_type": "walk",
+                "instruction": "向西步行38米向右前方行走",
+                "duration_min": 0,
+                "distance_m": 38,
+                "line_name": "",
+                "direction": "",
+                "on_station": "",
+                "off_station": "",
+                "via_count": 0,
+                "via_stops": [],
+                "entrance": "",
+                "exit": "",
+                "details": {
+                  "road": [],
+                  "orientation": "西"
+                }
+              },
+              {
+                "segment_type": "walk",
+                "instruction": "沿东环城路向西北步行14米向左前方行走",
+                "duration_min": 0,
+                "distance_m": 14,
+                "line_name": "",
+                "direction": "",
+                "on_station": "",
+                "off_station": "",
+                "via_count": 0,
+                "via_stops": [],
+                "entrance": "",
+                "exit": "",
+                "details": {
+                  "road": "东环城路",
+                  "orientation": "西北"
+                }
+              },
+              {
+                "segment_type": "walk",
+                "instruction": "沿思贤路向西步行152米左转",
+                "duration_min": 2,
+                "distance_m": 152,
+                "line_name": "",
+                "direction": "",
+                "on_station": "",
+                "off_station": "",
+                "via_count": 0,
+                "via_stops": [],
+                "entrance": "",
+                "exit": "",
+                "details": {
+                  "road": "思贤路",
+                  "orientation": "西"
+                }
+              },
+              {
+                "segment_type": "walk",
+                "instruction": "沿观音仔街向西南步行145米右转",
+                "duration_min": 1,
+                "distance_m": 145,
+                "line_name": "",
+                "direction": "",
+                "on_station": "",
+                "off_station": "",
+                "via_count": 0,
+                "via_stops": [],
+                "entrance": "",
+                "exit": "",
+                "details": {
+                  "road": "观音仔街",
+                  "orientation": "西南"
+                }
+              },
+              {
+                "segment_type": "walk",
+                "instruction": "沿城隍路向西步行183米左转",
+                "duration_min": 2,
+                "distance_m": 183,
+                "line_name": "",
+                "direction": "",
+                "on_station": "",
+                "off_station": "",
+                "via_count": 0,
+                "via_stops": [],
+                "entrance": "",
+                "exit": "",
+                "details": {
+                  "road": "城隍路",
+                  "orientation": "西"
+                }
+              },
+              {
+                "segment_type": "walk",
+                "instruction": "沿中山路向南步行123米到达目的地",
+                "duration_min": 1,
+                "distance_m": 123,
+                "line_name": "",
+                "direction": "",
+                "on_station": "",
+                "off_station": "",
+                "via_count": 0,
+                "via_stops": [],
+                "entrance": "",
+                "exit": "",
+                "details": {
+                  "road": "中山路",
+                  "orientation": "南"
+                }
+              }
+            ],
+            "route_strategy": "短距离步行",
+            "route_data_mode": "live_walk",
+            "route_fallback_reason": "amap_transit_empty,short_distance_walk_api",
+            "route_alternatives": [],
+            "expandable": true
+          },
+          {
+            "time_range": "13:30-15:00",
+            "title": "揭阳古城中山骑楼街",
+            "item_type": "attraction",
+            "meal_type": "",
+            "location_name": "揭阳古城中山骑楼街",
+            "location_address": "望江北路26号",
+            "location": {
+              "name": "揭阳古城中山骑楼街",
+              "address": "广东省揭阳市榕城区望江北路26号",
+              "lat": 23.533416,
+              "lng": 116.353638
+            },
+            "opening_check": {
+              "date": "2026-10-24",
+              "time_range": "13:30-15:00",
+              "status": "fits",
+              "hours_text": "24 小时开放",
+              "message": "安排在开放时段内",
+              "raw_text": "周一至周日 00:00-24:00",
+              "source": "高德地点开放时间",
+              "checked_at": "2026-10-24T04:14:48.242056+00:00"
+            },
+            "summary": "骑楼建筑群兼具历史街区与市井商业属性，可看老城立面，也能连续体验粿品、茶点等本地小吃文化。",
+            "estimated_cost": 0.0,
+            "reason": "把古城人文与美食探索合并到同一片区，午后短时游览后便于返回酒店休息，避开连续暴晒。",
+            "is_route_stop": true,
+            "transport_mode": "",
+            "from_location": "",
+            "to_location": "",
+            "duration_min": 0,
+            "distance_km": 0.0,
+            "transfers": 0,
+            "route_segments": [],
+            "route_strategy": "",
+            "route_data_mode": "",
+            "route_fallback_reason": "",
+            "route_alternatives": [],
+            "expandable": false
+          },
+          {
+            "time_range": "15:00-15:01",
+            "title": "揭阳古城中山骑楼街 -> 允锋卤鹅(揭阳中山路店)",
+            "item_type": "transport",
+            "meal_type": "",
+            "location_name": "允锋卤鹅(揭阳中山路店)",
+            "location_address": "中山路2/218号允锋卤鹅(鸿興行隔壁)",
+            "location": {
+              "name": "允锋卤鹅(揭阳中山路店)",
+              "address": "广东省揭阳市榕城区中山路2/218号允锋卤鹅(鸿興行隔壁)",
+              "lat": 23.534475,
+              "lng": 116.353825
+            },
+            "opening_check": null,
+            "summary": "公共交通约1分钟，0.1公里，约 0 元，换乘 0 次，步行 118 米",
+            "estimated_cost": 0.0,
+            "reason": "公共交通无可用方案且距离较短，已改用高德实时步行路线。",
+            "is_route_stop": true,
+            "transport_mode": "公共交通",
+            "from_location": "揭阳古城中山骑楼街",
+            "to_location": "允锋卤鹅(揭阳中山路店)",
+            "duration_min": 1,
+            "distance_km": 0.1,
+            "transfers": 0,
+            "route_segments": [
+              {
+                "segment_type": "walk",
+                "instruction": "沿中山路向北步行118米到达目的地",
+                "duration_min": 1,
+                "distance_m": 118,
+                "line_name": "",
+                "direction": "",
+                "on_station": "",
+                "off_station": "",
+                "via_count": 0,
+                "via_stops": [],
+                "entrance": "",
+                "exit": "",
+                "details": {
+                  "road": "中山路",
+                  "orientation": "北"
+                }
+              }
+            ],
+            "route_strategy": "短距离步行",
+            "route_data_mode": "live_walk",
+            "route_fallback_reason": "amap_transit_empty,short_distance_walk_api",
+            "route_alternatives": [],
+            "expandable": true
+          },
+          {
+            "time_range": "17:30-18:30",
+            "title": "允锋卤鹅(揭阳中山路店)",
+            "item_type": "meal",
+            "meal_type": "dinner",
+            "location_name": "允锋卤鹅(揭阳中山路店)",
+            "location_address": "中山路2/218号允锋卤鹅(鸿興行隔壁)",
+            "location": {
+              "name": "允锋卤鹅(揭阳中山路店)",
+              "address": "广东省揭阳市榕城区中山路2/218号允锋卤鹅(鸿興行隔壁)",
+              "lat": 23.534475,
+              "lng": 116.353825
+            },
+            "opening_check": {
+              "date": "2026-10-24",
+              "time_range": "17:30-18:30",
+              "status": "fits",
+              "hours_text": "10:00–20:00",
+              "message": "安排在开放时段内",
+              "raw_text": "周一至周日 10:00-20:00",
+              "source": "高德地点开放时间",
+              "checked_at": "2026-10-24T04:14:48.809839+00:00"
+            },
+            "summary": "晚餐建议：潮汕牛肉粿条、卤味、时蔬或清蒸类本地菜，少辣不重口。晚餐回到酒店与进贤门周边解决，延续美食探索偏好，也方便晚间休息。",
+            "estimated_cost": 86.0,
+            "reason": "晚餐回到酒店与进贤门周边解决，延续美食探索偏好，也方便晚间休息。",
+            "is_route_stop": true,
+            "transport_mode": "",
+            "from_location": "",
+            "to_location": "",
+            "duration_min": 0,
+            "distance_km": 0.0,
+            "transfers": 0,
+            "route_segments": [],
+            "route_strategy": "",
+            "route_data_mode": "",
+            "route_fallback_reason": "",
+            "route_alternatives": [],
+            "expandable": false
+          },
+          {
+            "time_range": "18:30-19:15",
+            "title": "允锋卤鹅(揭阳中山路店) -> 维也纳酒店(揭阳榕城进贤门城楼店)",
+            "item_type": "transport",
+            "meal_type": "",
+            "location_name": "维也纳酒店(揭阳榕城进贤门城楼店)",
+            "location_address": "广东省揭阳市榕城区进贤门大道梅兜路段5号",
+            "location": {
+              "name": "维也纳酒店(揭阳榕城进贤门城楼店)",
+              "address": "广东省揭阳市榕城区进贤门大道梅兜路段5号",
+              "lat": 23.533811,
+              "lng": 116.386722
+            },
+            "opening_check": null,
+            "summary": "公共交通约45分钟，3.5公里，约 3 元，换乘 0 次，步行 1334 米",
+            "estimated_cost": 3.0,
+            "reason": "高德实时公共交通路线，策略：推荐。",
+            "is_route_stop": true,
+            "transport_mode": "公共交通",
+            "from_location": "允锋卤鹅(揭阳中山路店)",
+            "to_location": "维也纳酒店(揭阳榕城进贤门城楼店)",
+            "duration_min": 45,
+            "distance_km": 3.5,
+            "transfers": 0,
+            "route_segments": [
+              {
+                "segment_type": "walk",
+                "instruction": "沿中山路步行5米右转；沿城隍路步行183米左转；沿观音仔街步行145米右转；沿思贤路步行166米向左前方直行；步行63米右转；沿进贤门大道步行677米到达进贤门市场",
+                "duration_min": 21,
+                "distance_m": 1239,
+                "line_name": "",
+                "direction": "",
+                "on_station": "",
+                "off_station": "",
+                "via_count": 0,
+                "via_stops": [],
+                "entrance": "",
+                "exit": "",
+                "details": {}
+              },
+              {
+                "segment_type": "bus",
+                "instruction": "乘坐公交1路(岐山车站--揭阳一中新城学校)，从进贤门市场上车，到梅兜村下车",
+                "duration_min": 22,
+                "distance_m": 2188,
+                "line_name": "1路(岐山车站--揭阳一中新城学校)",
+                "direction": "岐山车站--揭阳一中新城学校",
+                "on_station": "进贤门市场",
+                "off_station": "梅兜村",
+                "via_count": 3,
+                "via_stops": [
+                  "市中医院",
+                  "邱金元中学",
+                  "凤林村"
+                ],
+                "entrance": "",
+                "exit": "",
+                "details": {}
+              },
+              {
+                "segment_type": "walk",
+                "instruction": "沿进贤门大道步行67米右转；步行28米到达目的地",
+                "duration_min": 1,
+                "distance_m": 95,
+                "line_name": "",
+                "direction": "",
+                "on_station": "",
+                "off_station": "",
+                "via_count": 0,
+                "via_stops": [],
+                "entrance": "",
+                "exit": "",
+                "details": {}
+              }
+            ],
+            "route_strategy": "推荐",
+            "route_data_mode": "live",
+            "route_fallback_reason": "",
+            "route_alternatives": [
+              {
+                "lines": [
+                  "7路(进贤门--潭王村)",
+                  "1路(岐山车站--揭阳一中新城学校)"
+                ],
+                "duration_min": 49,
+                "distance_km": 4.2,
+                "cost": 7.0,
+                "walk_distance_m": 886,
+                "transfers": 1,
+                "route_segments": [
+                  {
+                    "segment_type": "walk",
+                    "instruction": "沿中山路步行5米右转；沿城隍路步行183米左转；沿观音仔街步行145米右转；沿思贤路步行166米向左前方直行；步行63米右转；沿进贤门大道步行10米到达进贤门",
+                    "duration_min": 11,
+                    "distance_m": 572,
+                    "line_name": "",
+                    "direction": "",
+                    "on_station": "",
+                    "off_station": "",
+                    "via_count": 0,
+                    "via_stops": [],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  },
+                  {
+                    "segment_type": "bus",
+                    "instruction": "乘坐公交7路(进贤门--潭王村)，从进贤门上车，到汽车总站下车",
+                    "duration_min": 8,
+                    "distance_m": 717,
+                    "line_name": "7路(进贤门--潭王村)",
+                    "direction": "进贤门--潭王村",
+                    "on_station": "进贤门",
+                    "off_station": "汽车总站",
+                    "via_count": 0,
+                    "via_stops": [],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {
+                      "alternatives": [
+                        {
+                          "line_name": "11路(进贤门--埔田大圆)",
+                          "departure_stop": "进贤门",
+                          "arrival_stop": "汽车总站"
+                        },
+                        {
+                          "line_name": "3路(进贤门--潮州市后陇村)",
+                          "departure_stop": "进贤门",
+                          "arrival_stop": "汽车总站"
+                        },
+                        {
+                          "line_name": "10路(进贤门--新辽)",
+                          "departure_stop": "进贤门",
+                          "arrival_stop": "汽车总站"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "segment_type": "walk",
+                    "instruction": "沿榕华大道步行123米向左前方直行；沿榕华大道步行96米到达汽车总站",
+                    "duration_min": 3,
+                    "distance_m": 219,
+                    "line_name": "",
+                    "direction": "",
+                    "on_station": "",
+                    "off_station": "",
+                    "via_count": 0,
+                    "via_stops": [],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  },
+                  {
+                    "segment_type": "bus",
+                    "instruction": "乘坐公交1路(岐山车站--揭阳一中新城学校)，从汽车总站上车，到梅兜村下车",
+                    "duration_min": 24,
+                    "distance_m": 2588,
+                    "line_name": "1路(岐山车站--揭阳一中新城学校)",
+                    "direction": "岐山车站--揭阳一中新城学校",
+                    "on_station": "汽车总站",
+                    "off_station": "梅兜村",
+                    "via_count": 4,
+                    "via_stops": [
+                      "进贤门市场",
+                      "市中医院",
+                      "邱金元中学",
+                      "凤林村"
+                    ],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  },
+                  {
+                    "segment_type": "walk",
+                    "instruction": "沿进贤门大道步行67米右转；步行28米到达目的地",
+                    "duration_min": 1,
+                    "distance_m": 95,
+                    "line_name": "",
+                    "direction": "",
+                    "on_station": "",
+                    "off_station": "",
+                    "via_count": 0,
+                    "via_stops": [],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  }
+                ]
+              },
+              {
+                "lines": [
+                  "新能源3号线(龙尾高新区--市综合中专)"
+                ],
+                "duration_min": 67,
+                "distance_km": 6.7,
+                "cost": 2.0,
+                "walk_distance_m": 1793,
+                "transfers": 0,
+                "route_segments": [
+                  {
+                    "segment_type": "walk",
+                    "instruction": "沿中山路步行147米左转；沿思贤路步行179米右转；沿打铜街步行408米左转；沿北环城路步行455米到达一中众智学校",
+                    "duration_min": 22,
+                    "distance_m": 1189,
+                    "line_name": "",
+                    "direction": "",
+                    "on_station": "",
+                    "off_station": "",
+                    "via_count": 0,
+                    "via_stops": [],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  },
+                  {
+                    "segment_type": "bus",
+                    "instruction": "乘坐公交新能源3号线(龙尾高新区--市综合中专)，从一中众智学校上车，到梅兜学校下车",
+                    "duration_min": 35,
+                    "distance_m": 4951,
+                    "line_name": "新能源3号线(龙尾高新区--市综合中专)",
+                    "direction": "龙尾高新区--市综合中专",
+                    "on_station": "一中众智学校",
+                    "off_station": "梅兜学校",
+                    "via_count": 4,
+                    "via_stops": [
+                      "揭阳市人民医院",
+                      "江南新城",
+                      "江南翰林轩",
+                      "水岸花城"
+                    ],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  },
+                  {
+                    "segment_type": "walk",
+                    "instruction": "步行195米向右前方直行进入右转专用道；沿进贤门大道步行92米右转；沿进贤门大道步行17米左转；沿进贤门大道步行272米左转；步行28米到达目的地",
+                    "duration_min": 8,
+                    "distance_m": 604,
+                    "line_name": "",
+                    "direction": "",
+                    "on_station": "",
+                    "off_station": "",
+                    "via_count": 0,
+                    "via_stops": [],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  }
+                ]
+              },
+              {
+                "lines": [
+                  "潮汕高铁站-揭阳进贤门(揭阳进贤门--潮汕高铁站)",
+                  "1路(岐山车站--揭阳一中新城学校)"
+                ],
+                "duration_min": 46,
+                "distance_km": 3.5,
+                "cost": 13.0,
+                "walk_distance_m": 953,
+                "transfers": 1,
+                "route_segments": [
+                  {
+                    "segment_type": "walk",
+                    "instruction": "沿中山路步行5米右转；沿城隍路步行183米左转；沿观音仔街步行145米右转；沿思贤路步行166米向左前方直行；步行17米到达揭阳进贤门",
+                    "duration_min": 10,
+                    "distance_m": 516,
+                    "line_name": "",
+                    "direction": "",
+                    "on_station": "",
+                    "off_station": "",
+                    "via_count": 0,
+                    "via_stops": [],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  },
+                  {
+                    "segment_type": "bus",
+                    "instruction": "乘坐公交潮汕高铁站-揭阳进贤门(揭阳进贤门--潮汕高铁站)，从揭阳进贤门上车，到东风广场下车",
+                    "duration_min": 7,
+                    "distance_m": 380,
+                    "line_name": "潮汕高铁站-揭阳进贤门(揭阳进贤门--潮汕高铁站)",
+                    "direction": "揭阳进贤门--潮汕高铁站",
+                    "on_station": "揭阳进贤门",
+                    "off_station": "东风广场",
+                    "via_count": 0,
+                    "via_stops": [],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  },
+                  {
+                    "segment_type": "walk",
+                    "instruction": "沿进贤门大道步行342米到达进贤门市场",
+                    "duration_min": 5,
+                    "distance_m": 342,
+                    "line_name": "",
+                    "direction": "",
+                    "on_station": "",
+                    "off_station": "",
+                    "via_count": 0,
+                    "via_stops": [],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  },
+                  {
+                    "segment_type": "bus",
+                    "instruction": "乘坐公交1路(岐山车站--揭阳一中新城学校)，从进贤门市场上车，到梅兜村下车",
+                    "duration_min": 22,
+                    "distance_m": 2188,
+                    "line_name": "1路(岐山车站--揭阳一中新城学校)",
+                    "direction": "岐山车站--揭阳一中新城学校",
+                    "on_station": "进贤门市场",
+                    "off_station": "梅兜村",
+                    "via_count": 3,
+                    "via_stops": [
+                      "市中医院",
+                      "邱金元中学",
+                      "凤林村"
+                    ],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  },
+                  {
+                    "segment_type": "walk",
+                    "instruction": "沿进贤门大道步行67米右转；步行28米到达目的地",
+                    "duration_min": 1,
+                    "distance_m": 95,
+                    "line_name": "",
+                    "direction": "",
+                    "on_station": "",
+                    "off_station": "",
+                    "via_count": 0,
+                    "via_stops": [],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  }
+                ]
+              },
+              {
+                "lines": [
+                  "109路(进贤门枢纽站--白塔中学)",
+                  "1路(岐山车站--揭阳一中新城学校)"
+                ],
+                "duration_min": 72,
+                "distance_km": 4.3,
+                "cost": 5.0,
+                "walk_distance_m": 878,
+                "transfers": 1,
+                "route_segments": [
+                  {
+                    "segment_type": "walk",
+                    "instruction": "沿中山路步行5米右转；沿城隍路步行183米左转；沿观音仔街步行145米右转；沿思贤路步行166米向左前方直行；步行38米向右后方直行；沿东环城路步行25米到达进贤门枢纽站",
+                    "duration_min": 11,
+                    "distance_m": 562,
+                    "line_name": "",
+                    "direction": "",
+                    "on_station": "",
+                    "off_station": "",
+                    "via_count": 0,
+                    "via_stops": [],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  },
+                  {
+                    "segment_type": "bus",
+                    "instruction": "乘坐公交109路(进贤门枢纽站--白塔中学)，从进贤门枢纽站上车，到汽车总站枢纽站下车",
+                    "duration_min": 32,
+                    "distance_m": 791,
+                    "line_name": "109路(进贤门枢纽站--白塔中学)",
+                    "direction": "进贤门枢纽站--白塔中学",
+                    "on_station": "进贤门枢纽站",
+                    "off_station": "汽车总站枢纽站",
+                    "via_count": 0,
+                    "via_stops": [],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  },
+                  {
+                    "segment_type": "walk",
+                    "instruction": "沿榕华大道步行125米向左前方直行；沿榕华大道步行96米到达汽车总站",
+                    "duration_min": 3,
+                    "distance_m": 221,
+                    "line_name": "",
+                    "direction": "",
+                    "on_station": "",
+                    "off_station": "",
+                    "via_count": 0,
+                    "via_stops": [],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  },
+                  {
+                    "segment_type": "bus",
+                    "instruction": "乘坐公交1路(岐山车站--揭阳一中新城学校)，从汽车总站上车，到梅兜村下车",
+                    "duration_min": 24,
+                    "distance_m": 2588,
+                    "line_name": "1路(岐山车站--揭阳一中新城学校)",
+                    "direction": "岐山车站--揭阳一中新城学校",
+                    "on_station": "汽车总站",
+                    "off_station": "梅兜村",
+                    "via_count": 4,
+                    "via_stops": [
+                      "进贤门市场",
+                      "市中医院",
+                      "邱金元中学",
+                      "凤林村"
+                    ],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  },
+                  {
+                    "segment_type": "walk",
+                    "instruction": "沿进贤门大道步行67米右转；步行28米到达目的地",
+                    "duration_min": 1,
+                    "distance_m": 95,
+                    "line_name": "",
+                    "direction": "",
+                    "on_station": "",
+                    "off_station": "",
+                    "via_count": 0,
+                    "via_stops": [],
+                    "entrance": "",
+                    "exit": "",
+                    "details": {}
+                  }
+                ]
+              }
+            ],
+            "expandable": true
+          }
+        ],
+        "total_transport_cost": 6.0,
+        "total_transport_time_min": 106
+      }
+    ],
+    "place_locks": [],
+    "budget": {
+      "hotel": 380.0,
+      "attractions": 0.0,
+      "food": 226.0,
+      "transport": 6.0,
+      "contingency": 48.96,
+      "total": 660.96
+    },
+    "packing_tips": [
+      "携带防晒用品、遮阳帽与饮用水，午后31℃左右注意补水",
+      "穿舒适步行鞋，便于古城街区与骑楼街之间短距离步行",
+      "可备轻薄外套或雨具，出发前再次确认临近天气"
+    ],
+    "risk_alerts": [
+      "2026-10-24多云且最高约31℃，正午至午后户外连续活动易晒易热，建议减少长时间步行并安排室内或餐饮休整",
+      "古城片区步行游览为主，需注意午后体力与补水节奏"
+    ],
+    "notes": [
+      "景点均位于榕城区古城核心，适合按学宫至骑楼街方向串联，减少折返",
+      "住宿选择进贤门古城周边，兼顾人文游览与餐饮聚集区便利性",
+      "天气预报为临近出发辅助信息，出行当天请再次查询确认",
+      "天气服务：和风天气 https://www.qweather.com/。和风天气预报范围：2026-10-24 至 2026-10-30。超出范围或缺少数据的日期暂无预报，出发前请再次查询。 预报更新时间：2026-10-24T00:30+08:00。",
+      "开放核对：按高德常规开放规则核对出行日期与停留时段；缺失、跨夜、预约或复杂例外标为待确认，不代表实时营业或可预约。",
+      "住宿按 1 晚、每晚 1 间房估算（每间最多 2 人）；单日游默认含 1 晚。房价区间是按酒店类别预留的参考预算，不是实时报价。"
+    ]
+  },
+  "day_rules": {},
+  "conversation": [],
+  "place_details": {
+    "recorded-0": {
+      "key": "recorded-0",
+      "name": "揭阳学宫",
+      "address": "广东省揭阳市榕城区韩祠路7号",
+      "district": "榕城区",
+      "poi_id": "B029700E9V",
+      "lat": 23.535795,
+      "lng": 116.355961,
+      "verified": true,
+      "photo_url": "https://aos-comment.amap.com/B029700E9V/comment/content_media_external_file_219_1773390741274_38062834.jpg",
+      "photo_source": "高德地点照片",
+      "map_url": "https://uri.amap.com/marker?position=116.355961%2C23.535795&name=%E6%8F%AD%E9%98%B3%E5%AD%A6%E5%AE%AB&coordinate=gaode&callnative=1&src=roam",
+      "opening_hours": "6月至9月 周一至周日 09:00-17:30；1月至5月,10月至12月 周一至周日 09:00-17:00",
+      "opening_hours_source": "高德地点开放时间",
+      "opening_hours_checked_at": "2026-10-24T04:48:05.909689+00:00",
+      "visit_checks": [
+        {
+          "date": "2026-10-24",
+          "time_range": "09:14-11:14",
+          "status": "fits",
+          "hours_text": "09:00–17:00",
+          "message": "安排在开放时段内",
+          "raw_text": "6月至9月 周一至周日 09:00-17:30；1月至5月,10月至12月 周一至周日 09:00-17:00",
+          "source": "高德地点开放时间",
+          "checked_at": "2026-10-24T04:48:05.909689+00:00"
+        }
+      ]
+    },
+    "recorded-1": {
+      "key": "recorded-1",
+      "name": "揭阳古城中山骑楼街",
+      "address": "广东省揭阳市榕城区望江北路26号",
+      "district": "榕城区",
+      "poi_id": "B0FFL3A6KT",
+      "lat": 23.533416,
+      "lng": 116.353638,
+      "verified": true,
+      "photo_url": "https://store.is.autonavi.com/showpic/5c34946b7eaddc180000002871192255?type=pic",
+      "photo_source": "高德地点照片",
+      "map_url": "https://uri.amap.com/marker?position=116.353638%2C23.533416&name=%E6%8F%AD%E9%98%B3%E5%8F%A4%E5%9F%8E%E4%B8%AD%E5%B1%B1%E9%AA%91%E6%A5%BC%E8%A1%97&coordinate=gaode&callnative=1&src=roam",
+      "opening_hours": "周一至周日 00:00-24:00",
+      "opening_hours_source": "高德地点开放时间",
+      "opening_hours_checked_at": "2026-10-24T04:48:06.460909+00:00",
+      "visit_checks": [
+        {
+          "date": "2026-10-24",
+          "time_range": "13:30-15:00",
+          "status": "fits",
+          "hours_text": "24 小时开放",
+          "message": "安排在开放时段内",
+          "raw_text": "周一至周日 00:00-24:00",
+          "source": "高德地点开放时间",
+          "checked_at": "2026-10-24T04:48:06.460909+00:00"
+        }
+      ]
+    },
+    "recorded-2": {
+      "key": "recorded-2",
+      "name": "维也纳酒店(揭阳榕城进贤门城楼店)",
+      "address": "广东省揭阳市榕城区进贤门大道梅兜路段5号",
+      "district": "榕城区",
+      "poi_id": "B0FFIUYAP5",
+      "lat": 23.533811,
+      "lng": 116.386722,
+      "verified": true,
+      "photo_url": "https://store.is.autonavi.com/showpic/570b43b30683efba2762c49e66b2d5d2",
+      "photo_source": "高德地点照片",
+      "map_url": "https://uri.amap.com/marker?position=116.386722%2C23.533811&name=%E7%BB%B4%E4%B9%9F%E7%BA%B3%E9%85%92%E5%BA%97%28%E6%8F%AD%E9%98%B3%E6%A6%95%E5%9F%8E%E8%BF%9B%E8%B4%A4%E9%97%A8%E5%9F%8E%E6%A5%BC%E5%BA%97%29&coordinate=gaode&callnative=1&src=roam",
+      "opening_hours": "",
+      "opening_hours_source": "",
+      "opening_hours_checked_at": "2026-10-24T04:21:13.050620+00:00",
+      "visit_checks": []
+    },
+    "recorded-3": {
+      "key": "recorded-3",
+      "name": "金味园烘焙(凤林桥店)",
+      "address": "广东省揭阳市榕城区进贤门大道梅兜村安全文明小区西侧",
+      "district": "榕城区",
+      "poi_id": "B0HKA7MQ5A",
+      "lat": 23.534644,
+      "lng": 116.385147,
+      "verified": true,
+      "photo_url": "http://store.is.autonavi.com/showpic/21e2603ceefd04f89b0587b8ede0a7ae",
+      "photo_source": "高德地点照片",
+      "map_url": "https://uri.amap.com/marker?position=116.385147%2C23.534644&name=%E9%87%91%E5%91%B3%E5%9B%AD%E7%83%98%E7%84%99%28%E5%87%A4%E6%9E%97%E6%A1%A5%E5%BA%97%29&coordinate=gaode&callnative=1&src=roam",
+      "opening_hours": "周一至周日 06:30-23:00",
+      "opening_hours_source": "高德地点开放时间",
+      "opening_hours_checked_at": "2026-10-24T04:21:13.638020+00:00",
+      "visit_checks": [
+        {
+          "date": "2026-10-24",
+          "time_range": "07:40-08:20",
+          "status": "fits",
+          "hours_text": "06:30–23:00",
+          "message": "安排在开放时段内",
+          "raw_text": "周一至周日 06:30-23:00",
+          "source": "高德地点开放时间",
+          "checked_at": "2026-10-24T04:21:13.638020+00:00"
+        }
+      ]
+    },
+    "recorded-4": {
+      "key": "recorded-4",
+      "name": "非遗·老字号·阿彬牛肉火锅(进贤门店)",
+      "address": "广东省揭阳市榕城区新兴街道河南社区新兴路8号-2",
+      "district": "榕城区",
+      "poi_id": "B0MR5RHXKE",
+      "lat": 23.534854,
+      "lng": 116.358934,
+      "verified": true,
+      "photo_url": "https://store.is.autonavi.com/showpic/0a5f7a22fb8664fe0000003867400726?type=pic",
+      "photo_source": "高德地点照片",
+      "map_url": "https://uri.amap.com/marker?position=116.358934%2C23.534854&name=%E9%9D%9E%E9%81%97%C2%B7%E8%80%81%E5%AD%97%E5%8F%B7%C2%B7%E9%98%BF%E5%BD%AC%E7%89%9B%E8%82%89%E7%81%AB%E9%94%85%28%E8%BF%9B%E8%B4%A4%E9%97%A8%E5%BA%97%29&coordinate=gaode&callnative=1&src=roam",
+      "opening_hours": "周一至周日 11:00-21:00 2026-10-01至2026-10-07 10:30-22:00",
+      "opening_hours_source": "高德地点开放时间",
+      "opening_hours_checked_at": "2026-10-24T04:21:14.310177+00:00",
+      "visit_checks": [
+        {
+          "date": "2026-10-24",
+          "time_range": "11:30-12:30",
+          "status": "unknown",
+          "hours_text": "",
+          "message": "开放规则较复杂，请查看原始时间并向场所确认。",
+          "raw_text": "周一至周日 11:00-21:00 2026-10-01至2026-10-07 10:30-22:00",
+          "source": "高德地点开放时间",
+          "checked_at": "2026-10-24T04:21:14.310177+00:00"
+        }
+      ]
+    },
+    "recorded-5": {
+      "key": "recorded-5",
+      "name": "允锋卤鹅(揭阳中山路店)",
+      "address": "广东省揭阳市榕城区中山路2/218号允锋卤鹅(鸿興行隔壁)",
+      "district": "榕城区",
+      "poi_id": "B0K0P5PUEL",
+      "lat": 23.534475,
+      "lng": 116.353825,
+      "verified": true,
+      "photo_url": "https://aos-comment.amap.com/B0K0P5PUEL/comment/5B5C98D1_1BBE_401F_A14C_1ED780A348C2_L0_001_1498_199_1769940886412_67656064.jpg",
+      "photo_source": "高德地点照片",
+      "map_url": "https://uri.amap.com/marker?position=116.353825%2C23.534475&name=%E5%85%81%E9%94%8B%E5%8D%A4%E9%B9%85%28%E6%8F%AD%E9%98%B3%E4%B8%AD%E5%B1%B1%E8%B7%AF%E5%BA%97%29&coordinate=gaode&callnative=1&src=roam",
+      "opening_hours": "周一至周日 10:00-20:00",
+      "opening_hours_source": "高德地点开放时间",
+      "opening_hours_checked_at": "2026-10-24T04:21:15.010751+00:00",
+      "visit_checks": [
+        {
+          "date": "2026-10-24",
+          "time_range": "17:30-18:30",
+          "status": "fits",
+          "hours_text": "10:00–20:00",
+          "message": "安排在开放时段内",
+          "raw_text": "周一至周日 10:00-20:00",
+          "source": "高德地点开放时间",
+          "checked_at": "2026-10-24T04:21:15.010751+00:00"
+        }
+      ]
+    }
+  },
+  "mode": "recorded_demo",
+  "recorded_at": "2026-10-24"
+}
