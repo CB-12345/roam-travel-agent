@@ -1,153 +1,162 @@
 # ROAM 漫游 · 多智能体旅行工作台
 
-[![Regression](https://github.com/CB-12345/roam-travel-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/CB-12345/roam-travel-agent/actions/workflows/ci.yml)
+面向 **1–7 天国内城市自由行**的 AI 旅行规划应用。填写目的地、日期、预算和偏好，即可获得包含景点、餐饮、住宿与费用的每日安排，并通过对话继续调整。
 
-面向 1–7 天国内城市自由行：从需求出发生成可查看、可局部修改、可撤销的旅行安排。模型负责研究与编排，后端核对地点、时间、常规开放规则和费用账目。界面提供照片、具体地址与高德入口，默认折叠技术记录。
+**多智能体协作 · 真实地点资料 · 对话调整 · 地点锁定 · 预算管理 · 旅行备份**
 
-本项目基于 [tuxin-winter/travel_agent](https://github.com/tuxin-winter/travel_agent) 二次开发（原 zhengzhi-zy 地址会重定向），学习背景来自 [Hello Agents](https://github.com/datawhalechina/hello-agents)。上游已包含研究 Agent、候选检索、结构化规划、餐饮和交通链路；本地改造重点是交互、对话与地点编辑、时空及账目一致性、任务可靠性和可复现验证。直接上游未明确再分发许可，公开发布前应核实授权；具体来源、版本和许可状态见 [NOTICE](NOTICE.md)。
+![旅行需求填写](docs/images/showcase-planning.png)
 
-![桌面示例界面](docs/images/demo-desktop.png)
+## 核心功能
 
-[手机深色界面](docs/images/demo-mobile-dark.png) · 截图中的照片来自实际 POI 资料，示例日期已明确标注。
+| 功能 | 使用方式 |
+| --- | --- |
+| 个性化旅行规划 | 根据城市、日期、人数、预算、旅行节奏、住宿偏好和出行方式生成安排，支持人文、自然、美食、艺术等偏好 |
+| 多智能体协作 | 景点、天气、酒店研究 Agent 并行收集资料，再由规划 Agent 编排每日活动、餐饮和住宿 |
+| 真实地点卡片 | 展示高德 POI 的地点照片、具体地址和地图入口，方便查看位置；缺失资料明确提示 |
+| 每日行程 | 按日期查看活动时间、景点停留、餐饮与当日住宿，结合交通耗时和可核实的营业时段安排时间 |
+| 对话调整 | 用自然语言修改指定日期的安排、减少景点或询问费用，查看调整前后变化，支持最近 5 次撤销 |
+| 地点替换与锁定 | 为景点、餐厅、酒店搜索其他候选；锁定需要保留的地点及日期，后续调整继续沿用 |
+| 旅行预算 | 展示总费用、人均费用及住宿、餐饮、门票、交通、弹性预算的占比，超出预算时提示 |
+| 历史与备份 | 保存本地旅行历史，支持 Markdown 导出、JSON 备份与导入，保留行程、对话和锁定状态 |
+| 任务恢复 | 后台执行规划，通过 SSE 展示进度；页面刷新或网络短暂中断后可取回同一任务的结果 |
 
-## 快速体验
+## 技术栈
 
-已安装环境可运行：
+| 层次 | 技术与职责 |
+| --- | --- |
+| Agent 与模型 | **LangChain**：模型适配、工具调用与专业 Agent 分工；支持 DeepSeek 等 OpenAI 兼容模型接口 |
+| Web 后端 | **Python 3.12 / 3.13、FastAPI、Uvicorn**：业务 API、后台任务与静态页面服务 |
+| 数据模型 | **Pydantic**：旅行需求、候选地点、行程、对话调整和备份的结构化校验 |
+| 工具与外部数据 | **本地 MCP 风格工具、高德 Web 服务、和风天气**：地点检索、交通耗时、照片、开放描述与天气查询 |
+| 任务与通信 | **SQLite、SSE、幂等提交**：持久化任务、进度推送、事件重放与刷新恢复 |
+| 前端 | **原生 JavaScript、HTML、CSS**：响应式工作台、对话抽屉、地点卡片、主题切换 |
+| 本地存储 | **localStorage、sessionStorage、JSON / Markdown**：旅行历史、任务引用与导入导出 |
 
-```powershell
-.\start-local.ps1
-# 停止：.\stop-local.ps1
+## 系统架构
+
+```mermaid
+flowchart TD
+    UI[旅行工作台] --> API[FastAPI / Pydantic]
+    API --> TASK[SQLite 任务 / SSE 进度]
+    TASK --> AT[景点研究 Agent]
+    TASK --> WT[天气研究 Agent]
+    TASK --> HT[酒店研究 Agent]
+    AT --> PLAN[规划 Agent]
+    WT --> PLAN
+    HT --> PLAN
+    AT -.-> AMAP[高德地点与交通服务]
+    HT -.-> AMAP
+    WT -.-> WEATHER[和风天气]
+    PLAN --> CHECK[地点匹配 / 时间安排 / 费用汇总]
+    CHECK --> RESULT[结构化旅行行程]
+    RESULT --> UI
+    UI --> EDIT[对话修改 / 候选替换 / 地点锁定]
+    EDIT --> TASK
 ```
 
-浏览器打开 **http://127.0.0.1:8010**，点击“查看示例行程”。示例无需 Key，不调用模型或地图/天气查询，来自 2026-10-24 的真实录制行程，明确标注历史数据与只读状态。图片仍来自第三方 URL，离线可能无法加载。示例支持地图链接、预算、检查详情及导出；要调整行程请生成自己的版本。
+模型负责理解偏好、搜索与编排，后端负责候选身份、交通耗时、完整停留、三餐窗口、常规营业时间和费用账目。修改在副本上执行，完成校验后再更新当前行程。详细模块与设计说明见 [架构说明](docs/架构与取舍.md)。
 
-## 首次安装
+## 功能演示
 
-本机验证环境为 Windows、Python 3.13.5、Node.js。已用不含本地配置/数据的源码副本与全新虚拟环境完成安装、回归和无 Key 示例服务验收，详见 [验证记录](docs/验证记录.md)。CI 配置覆盖 Ubuntu Python 3.12/3.13，实际远端状态以 GitHub Actions 为准。
+以下截图来自实际运行的杭州两日游页面。照片来自地点资料，费用为规划估算，天气与开放信息以查询时记录为准。点击图片可查看大图。
+
+### 行程总览
+
+集中查看旅行主题、天数、人数、预估费用与每日安排，再进入具体日期查看详情。
+
+![杭州两日旅行总览](docs/images/showcase-overview.png)
+
+### 每日安排与住宿建议
+
+按时间浏览当天活动，直接打开高德地图查看具体地点；住宿页展示酒店照片、地址、参考费用与替换入口。
+
+| 每日安排 | 住宿建议 |
+| --- | --- |
+| [![每日活动、餐饮与地点](docs/images/showcase-itinerary.png)](docs/images/showcase-itinerary.png) | [![酒店照片、地址与参考费用](docs/images/showcase-hotels.png)](docs/images/showcase-hotels.png) |
+
+### 预算明细
+
+查看总费用与人均花费，按住宿、餐饮、门票、交通和弹性预算了解费用构成。
+
+![旅行预算及费用占比](docs/images/showcase-budget.png)
+
+### 对话调整与移动端
+
+在当前行程上继续提问或调整需求，也可在手机上查看。桌面与移动端均支持浅色、深色主题。
+
+<table>
+  <tr>
+    <th>基于当前行程的费用问答</th>
+    <th>移动端深色界面</th>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><a href="docs/images/showcase-conversation.png"><img src="docs/images/showcase-conversation.png" alt="对话解释当前行程的费用与节省建议" width="330"></a></td>
+    <td align="center" valign="top"><a href="docs/images/showcase-mobile.png"><img src="docs/images/showcase-mobile.png" alt="手机端查看杭州两日旅行" width="330"></a></td>
+  </tr>
+</table>
+
+## 快速开始
+
+需要 Python 3.12 或 3.13。以下命令以 Windows PowerShell 为例：
 
 ```powershell
 git clone https://github.com/CB-12345/roam-travel-agent.git
 cd roam-travel-agent
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt -c requirements.lock.txt
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt -c requirements.lock.txt
 Copy-Item .env.example .env
 .\start-local.ps1
 ```
 
-也可直接运行单 worker：
+浏览器打开 **http://127.0.0.1:8010**。未配置 Key 时，首页可点击“查看示例行程”体验只读历史示例；配置完成后可生成和调整自己的行程。停止服务使用 `.\stop-local.ps1`。
 
-```powershell
-.\.venv\Scripts\python.exe -m uvicorn main:app --host 127.0.0.1 --port 8010 --workers 1
+<details>
+<summary>macOS / Linux 启动方式</summary>
+
+```bash
+git clone https://github.com/CB-12345/roam-travel-agent.git
+cd roam-travel-agent
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt -c requirements.lock.txt
+cp .env.example .env
+.venv/bin/python -m uvicorn main:app --host 127.0.0.1 --port 8010 --workers 1
 ```
 
-`requirements.lock.txt` 是已验证环境的解析版本快照，含 Windows 依赖平台标记。安装时将它作为约束，避免无意升级依赖。不要把 `.env`、本地运行数据库、日志或个人行程提交到仓库。
+</details>
 
-## 实时规划配置
+### 配置实时规划
 
-在本地 `.env` 填写，前端不收集或保存 Key：
+在本地 `.env` 中填写以下配置，修改后重启服务：
 
-| 配置 | 用途 |
+| 配置项 | 说明 |
 | --- | --- |
-| `LLM_ENABLED=true` | 启用真实模型规划 |
-| `LLM_PROVIDER` | 提供方标签，例如 deepseek |
-| `LLM_MODEL` | 提供方支持的模型名 |
-| `LLM_API_KEY` | 模型凭证 |
-| `LLM_BASE_URL` | 兼容 OpenAI 的接口地址，按厂商填写 |
-| `AMAP_API_KEY` | 高德 Web 服务 Key，检索地点、交通、照片和开放描述 |
+| `LLM_ENABLED` | 设置为 `true`，启用模型规划 |
+| `LLM_PROVIDER` | 模型提供方标签，例如 `deepseek` |
+| `LLM_MODEL` | 提供方支持的模型名称，例如 `deepseek-chat` |
+| `LLM_API_KEY` | 模型 API Key |
+| `LLM_BASE_URL` | OpenAI 兼容接口地址，例如 `https://api.deepseek.com/v1` |
+| `AMAP_API_KEY` | 高德 **Web 服务** Key，用于地点、交通和地点资料查询 |
 | `QWEATHER_API_KEY` | 和风天气凭证 |
-| `QWEATHER_API_HOST` | 和风控制台专属 API Host，仅域名，不含路径 |
-| `LLM_TIMEOUT_SECONDS` | 单次模型请求超时，默认 60 秒 |
+| `QWEATHER_API_HOST` | 和风控制台分配的专属 API Host，仅填域名 |
 
-修改后先停止，再启动。超出天气可预报日期时提示缺失，开放信息复杂时保留“待确认”。缺少 Key 时可看录制示例；系统兼容的本地回退数据只用于开发，不能当成真实可出行资料。
+Key 仅由后端从本地配置读取，`.env`、日志、数据库和个人行程均被 Git 忽略。当前按本地个人工作台运行，使用单个 Uvicorn worker。
 
-## 已实现的业务闭环
+## 项目结构
 
-- 景点、天气、酒店研究 Agent 并行检索，规划 Agent 生成住宿骨架和每日安排；实体来自候选工具数据。
-- 真实 POI 身份匹配、照片、具体地址和高德链接；同名歧义与未知资料明确标记。
-- 交通耗时与到达缓冲、完整游玩时长、正常三餐窗口、可解析的常规开放规则共同约束排程。页面只展示地点和地址，交通链用于后台核算。
-- 指定日期对话调整、费用问答、候选替换、地点锁定、前后对比和最近五次撤销；修改失败保留原版本。
-- 预算按实际安排、收费晚数、每间两人的房间数重新汇总；参考费用不代表成交价，无酒店预订及支付功能。
-- 独立规则验收：明确错误阻止新结果提交，未知天气/营业/坐标等提示确认；旧行程补充检查不静默重排。
-- SQLite 持久任务、提交幂等、有界队列、有序 SSE 事件重放与快照补偿；刷新后取回同一任务。服务重启会明确中断未完成任务，完成结果保留 24 小时且最多 200 项。
-- 本地历史最多 12 份，JSON 备份可导入为新行程；包含当前计划、对话、每日限制、锁定和地点资料，不递归保存撤销历史。Markdown 导出便于阅读。
-- 可折叠运行统计包含模型/工具/HTTP 调用次数、耗时及提供方实际报告的 Token。统计不记录提示词或 Key；任务库保存恢复所需的需求和结果。
-
-## 验证
-
-下列回归与离线评测无需真实 API Key，不消耗模型请求。真实接口验证另行显式执行，不纳入离线 CI。
-
-```powershell
-.\.venv\Scripts\python.exe -X utf8 -m pytest -q tests
-.\.venv\Scripts\python.exe -X utf8 scripts/evaluate.py --output evals/latest-report.json
-node --test tests/frontend/*.test.cjs
-node --check static/app.js
-node --check static/task-client.js
-node --check static/portfolio.js
+```text
+src/
+  agents/       景点、天气、酒店、规划与对话 Agent
+  mcp/          工具注册、地图与天气服务适配
+  services/     规划、局部编辑、地点资料、任务与排程
+  app.py        FastAPI 接口与静态页面服务
+  models*.py    结构化业务模型
+static/         前端工作台与样式
+examples/       无 Key 体验的历史示例
+docs/           架构说明与界面截图
 ```
 
-本轮本地结果：**144 项 Python 测试、7 项前端任务恢复测试通过，20/20 个离线质量案例符合预期**。案例覆盖时间重叠、完整停留、交通缓冲、开放冲突、餐厅营业时段预筛选、未知信息、候选一致性、三餐、天气、住宿与预算；[评测记录](evals/latest-report.json) 可复跑。
+地点照片、地址与开放描述来自第三方资料；缺失或复杂规则会提示确认。酒店价格和行程费用为估算，票务、预约、实时库存与支付由用户自行确认。
 
-这 20 项使用同一份录制行程与确定性故障注入，衡量规则回归，**不代表模型规划准确率、跨城市成功率或线上可用率**。端到端真实生成的验证单独记录，不和离线规则检出混为同一个指标。CI 在 push/PR 时运行测试、评测及 JavaScript 语法检查。
+## 来源
 
-[单次真实生成记录](evals/live-smoke-report.json)：2026-10-24 测试揭阳一日规划，后台耗时 95.74 秒，模型调用 11 次、工具调用 12 次、HTTP 调用 44 次；11 次模型调用均有用量报告，共 50,051 输入 Token 和 11,326 输出 Token。浏览器在规划中刷新后取回同一任务，最终规则验收通过。这是单次观测，不能代表平均性能、成本或成功率；统计不包含结果页随后补充的地点资料查询。
-
-浏览器验收也验证了费用问答、锁定、备份保留上下文、文件导入、示例无实时查询，以及 390px 手机深色布局无横向溢出。最终结果页的桌面浅色与手机深色自动可访问性检查均为 0 项违规、0 项待人工判定；这不等于完成了全应用人工无障碍评估。
-
-## 真实接口回归（按需执行）
-
-先启动已配置模型、高德与和风的服务，再运行：
-
-```powershell
-.\.venv\Scripts\python.exe -X utf8 scripts/live_smoke.py
-```
-
-这条命令会消耗当前服务的 API 额度，依次执行 `evals/live-cases.json` 的四组请求，并检查杭州行程的局部修改与锁定。日期按运行当天计算；提供方数据和模型输出会变化，失败案例也写入报告。完整任务快照仅保留在被忽略的 `data/local-runtime/live-smoke/`，公开摘要不含 Key 或原始模型响应。
-
-实时样例与干净环境复现的实测结果见 [验证记录](docs/验证记录.md)。这些是少量场景的工程验收，不能当成全国城市规划成功率。
-
-本轮四城首测 3/4 通过；杭州早餐门店营业冲突被拦截，修正后真实生成与指定日期修改复测均通过。保留 [首轮报告](evals/live-matrix-initial-report.json) 与 [修复复测](evals/live-recheck-report.json)，不覆盖失败记录。
-
-## 准备提交源码
-
-项目作为独立 Git 仓库维护，`.gitignore` 排除本地环境、Key、日志、数据库和个人行程。提交前暂存源码，再检查实际暂存内容：
-
-```powershell
-git add .
-.\.venv\Scripts\python.exe -X utf8 scripts/check_release.py
-git diff --cached --stat
-```
-
-检查包含私有/生成文件、已配置凭证是否意外混入、必需文件和文档相对链接；通过只表示技术检查通过，不能替代 [上游授权核实](NOTICE.md)。请保留来源与修改声明。
-
-## Docker 本地运行
-
-```powershell
-docker build -t roam-travel:local .
-# 无 Key 示例
-docker run --rm -p 127.0.0.1:8011:8010 -v roam-tasks:/app/data roam-travel:local
-# 真实规划时另加 --env-file .env
-```
-
-打开 http://127.0.0.1:8011 。挂载卷保留任务库，浏览器行程仍保存在浏览器本地。只运行单 worker。镜像构建上下文采用白名单，不包含 `.env`、数据库和日志。默认本地个人使用；此版本未实现多人账号与任务归属隔离。
-
-本次 Docker 实际构建在拉取 `python:3.13-slim` 时遇到 Docker Hub 认证服务连接超时，未完成容器启动验证；本地 Python 运行已验证。请在可访问 Docker Hub 的网络中重试上述命令。
-
-## 代码入口
-
-| 位置 | 职责 |
-| --- | --- |
-| `src/agents/`、`src/llm.py` | 研究/规划 Agent 与 LangChain 模型、工具调用 |
-| `src/services/planner.py` | 候选、排程、餐饮、交通、费用主流程 |
-| `src/services/revision.py`、`place_edits.py`、`stop_locks.py` | 对话修改、精细替换与锁定 |
-| `src/services/planning_quality.py`、`opening_hours.py` | 确定性排程与常规开放规则 |
-| `src/services/quality.py` | 独立最终结果验收 |
-| `src/services/tasks.py`、`observability.py`、`errors.py` | 持久任务、安全统计与错误处理 |
-| `src/services/places.py` | 地点匹配、照片和资料缓存 |
-| `src/mcp/` | MCP 风格工具注册、地图与天气数据适配 |
-| `src/app.py` | API、SSE 和本地静态页面 |
-| `static/` | ROAM 工作台、地点与对话编辑、任务恢复、备份及示例 |
-| `examples/`、`evals/`、`scripts/evaluate.py` | 录制示例与离线回归评测 |
-
-[架构与取舍](docs/架构与取舍.md) 包含规划链路、模型与规则边界、可靠性及并发限制；[简历与演示](docs/简历与演示.md) 包含贡献写法、演示步骤和面试问答。
-
-当前 Web 主流程使用 LangChain 与本地 MCP 风格工具，并非分布式 MCP 服务或 LangGraph 工作流。未接入真实票务、预约库存、酒店成交价与支付；节假日例外和复杂开放规则需要人工确认。要扩展多人服务，应先增加身份与任务归属、限额、独立请求上下文及共享调度。
+本项目基于 [tuxin-winter/travel_agent](https://github.com/tuxin-winter/travel_agent) 二次开发，学习参考 [Hello Agents](https://github.com/datawhalechina/hello-agents)。来源版本、第三方资料及许可状态见 [NOTICE](NOTICE.md)。
