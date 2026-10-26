@@ -132,25 +132,7 @@ ROAM 是面向 **1–7 天国内城市自由行**的 AI 旅行规划应用。输
 | 任务与通信 | **SQLite、SSE、幂等提交**：任务与事件持久化、阶段推送、事件重放与快照补偿 |
 | 前端与存储 | **JavaScript、HTML、CSS、localStorage、sessionStorage**：响应式工作台、本地旅行历史、主题与任务引用 |
 
-```mermaid
-flowchart TD
-    UI[用户需求 / 旅行工作台] --> API[FastAPI / Pydantic 校验]
-    API --> TASK[后台任务 / SQLite / SSE]
-    TASK --> AT[景点研究 Agent]
-    TASK --> WT[天气研究 Agent]
-    TASK --> HT[酒店研究 Agent]
-    AT --> PLAN[规划 Agent：骨架与逐日安排]
-    WT --> PLAN
-    HT --> PLAN
-    AT -.-> AMAP[高德地点与交通服务]
-    HT -.-> AMAP
-    WT -.-> WEATHER[和风天气]
-    PLAN --> CHECK[餐厅落地 / 交通排程 / 开放规则 / 预算]
-    CHECK --> RESULT[独立验收 / 保存结果]
-    RESULT --> UI
-    UI --> EDIT[对话修改 / 候选替换 / 锁定 / 撤销]
-    EDIT --> TASK
-```
+![ROAM 多智能体规划与对话调整架构](docs/images/architecture.svg)
 
 模型负责理解偏好、查询与选择、提出安排；程序负责候选身份、交通和时间约束、费用核算及修改状态。当前 Web 链路使用本地工具注册与 Tool Calling，仓库中的 FastMCP 服务定义为可选扩展。详细职责见 [架构说明](docs/架构与取舍.md)。
 
@@ -167,7 +149,7 @@ Copy-Item .env.example .env
 .\start-local.ps1
 ```
 
-浏览器打开 **http://127.0.0.1:8010**。无 Key 时点击“查看示例行程”体验只读历史示例；完成配置后可生成和调整自己的方案。停止服务使用 `.\stop-local.ps1`。
+浏览器打开 [http://127.0.0.1:8010](http://127.0.0.1:8010)。无 Key 时点击“查看示例行程”体验只读历史示例；完成配置后可生成和调整自己的方案。停止服务使用 `.\stop-local.ps1`。
 
 <details>
 <summary>macOS / Linux 启动方式</summary>

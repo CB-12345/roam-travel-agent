@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1260" height="960" viewBox="0 0 1260 960" role="img" aria-labelledby="title description">
+  <title id="title">ROAM 多智能体旅行规划架构</title>
+  <desc id="description">旅行需求经过 FastAPI 校验与后台任务，由景点、天气、酒店研究 Agent 并行查询，再生成骨架与每日安排，核对地点、交通、开放时间和费用，输出可继续对话调整的行程。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#367565"/>
+    </marker>
+    <style>
+      text { font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif; }
+      .heading { fill: #20352e; font-size: 29px; font-weight: 700; }
+      .subheading { fill: #687a71; font-size: 17px; }
+      .node { fill: #fff; stroke: #d5e2d9; stroke-width: 1.5; }
+      .accent { fill: #eaf3eb; stroke: #92b59d; stroke-width: 1.5; }
+      .dark { fill: #2d6355; }
+      .label { fill: #243e34; font-size: 23px; font-weight: 700; text-anchor: middle; }
+      .detail { fill: #61756b; font-size: 17px; text-anchor: middle; }
+      .line { fill: none; stroke: #367565; stroke-width: 2.2; }
+      .arrow { fill: none; stroke: #367565; stroke-width: 2.2; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1260" height="960" rx="24" fill="#f8faf6"/>
+  <text x="60" y="54" class="heading">从旅行需求到可持续调整的行程</text>
+  <text x="60" y="82" class="subheading">多智能体协作 · 有来源的地点资料 · 确定性业务校验 · 状态化修改</text>
+
+  <rect x="340" y="118" width="520" height="76" rx="16" class="accent"/>
+  <text x="600" y="150" class="label">旅行需求</text>
+  <text x="600" y="176" class="detail">城市 / 日期 / 人数 / 预算 / 偏好与忌讳</text>
+  <path d="M600 194 V226" class="arrow"/>
+
+  <rect x="340" y="228" width="520" height="86" rx="16" class="node"/>
+  <text x="600" y="261" class="label">FastAPI · Pydantic · 后台任务</text>
+  <text x="600" y="288" class="detail">需求校验 / 幂等提交 / SQLite 持久化 / SSE 进度</text>
+  <path d="M600 314 V340 H220 V370" class="arrow"/>
+  <path d="M600 314 V370" class="arrow"/>
+  <path d="M600 340 H980 V370" class="arrow"/>
+
+  <rect x="60" y="372" width="320" height="88" rx="16" class="node"/>
+  <text x="220" y="407" class="label">景点研究 Agent</text>
+  <text x="220" y="434" class="detail">Tool Calling / 高德 POI / 候选筛选</text>
+  <rect x="440" y="372" width="320" height="88" rx="16" class="node"/>
+  <text x="600" y="407" class="label">天气研究 Agent</text>
+  <text x="600" y="434" class="detail">和风天气 / 日期核对 / 出行建议</text>
+  <rect x="820" y="372" width="320" height="88" rx="16" class="node"/>
+  <text x="980" y="407" class="label">酒店研究 Agent</text>
+  <text x="980" y="434" class="detail">Tool Calling / 住宿候选 / 预算匹配</text>
+  <path d="M220 460 V488 H980 V460" class="line"/>
+  <path d="M600 460 V518" class="arrow"/>
+
+  <rect x="340" y="520" width="520" height="86" rx="16" class="accent"/>
+  <text x="600" y="554" class="label">规划 Agent：骨架与逐日安排</text>
+  <text x="600" y="581" class="detail">景点分配 / 住宿衔接 / 每日细化 / 餐饮意图</text>
+  <path d="M600 606 V646" class="arrow"/>
+
+  <rect x="340" y="648" width="520" height="86" rx="16" class="node"/>
+  <text x="600" y="682" class="label">程序核对与独立验收</text>
+  <text x="600" y="709" class="detail">地点匹配 / 交通排程 / 开放规则 / 费用重算</text>
+  <path d="M600 734 V774" class="arrow"/>
+
+  <rect x="340" y="776" width="520" height="86" rx="16" class="dark"/>
+  <text x="600" y="811" class="label" style="fill:#fff">可查看、可调整的逐日行程</text>
+  <text x="600" y="838" class="detail" style="fill:#e0eee6">地点照片与地图 / 三餐与住宿 / 天气与预算</text>
+  <path d="M860 819 H938" class="arrow"/>
+
+  <rect x="940" y="776" width="260" height="86" rx="16" class="accent"/>
+  <text x="1070" y="811" class="label">继续调整</text>
+  <text x="1070" y="838" class="detail">对话 / 替换 / 锁定 / 撤销</text>
+  <path d="M1200 819 H1230 V271 H862" class="arrow"/>
+  <text x="1198" y="626" class="detail" transform="rotate(-90 1198 626)">保留行程上下文与约束</text>
+
+  <text x="630" y="916" class="detail">来源可核对 · 硬冲突拦截 · 未知资料提示 · 修改失败保留原方案</text>
+</svg>
