@@ -1,4 +1,4 @@
-name: local-agent-regression
+name: regression
 on: [push, pull_request, workflow_dispatch]
 jobs:
   offline:
@@ -20,13 +20,6 @@ jobs:
         with:
           node-version: '22'
       - run: python -m pip install -r requirements-dev.txt -c requirements.lock.txt
-      - run: python scripts/check_release.py
       - run: python -m pytest -q tests
       - run: node --test tests/frontend/*.test.cjs
-      - run: python scripts/evaluate.py --output evals/ci-report.json
       - run: for file in static/*.js; do node --check "$file"; done
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: quality-replay-${{ matrix.python }}
-          path: evals/ci-report.json

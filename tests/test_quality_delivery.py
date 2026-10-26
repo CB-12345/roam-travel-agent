@@ -6,7 +6,7 @@ from pathlib import Path
 import pytest
 from fastapi.testclient import TestClient
 
-from scripts.evaluate import replay_cases
+from src.models import TravelRequest, TripPlan
 from src.models_backup import TripBackup
 from src.services.quality import accept_plan, audit_plan
 
@@ -20,11 +20,28 @@ def recorded():
     )
 
 
-def test_offline_quality_fault_injection_suite():
-    results = replay_cases()
-    assert all(case["passed"] for case in results), [
-        case for case in results if not case["passed"]
-    ]
+def test_offline_quality_fault_injection_suite(recorded):
+    cases = json.loads(
+        (ROOT / "tests/fixtures/quality-cases.json").read_text(encoding="utf-8")
+    )
+    for case in cases:
+        value = recorded.model_dump(mode="json")
+        for path, replacement in case.get("edits", []):
+            parts = path.split(".")
+            parent = value
+            for part in parts[:-1]:
+                parent = parent[int(part)] if isinstance(parent, list) else parent[part]
+            key = int(parts[-1]) if isinstance(parent, list) else parts[-1]
+            parent[key] = replacement
+        report = audit_plan(
+            TravelRequest.model_validate(value["request"]),
+            TripPlan.model_validate(value["plan"]),
+        )
+        found = {issue.code for issue in report.issues}
+        assert set(case.get("expect", [])) <= found, case["id"]
+        assert not set(case.get("absent", [])) & found, case["id"]
+        assert report.errors == case.get("errors", report.errors), case["id"]
+        assert report.status == case.get("status", report.status), case["id"]
 
 
 def test_acceptance_rejects_inconsistent_budget_but_preserves_uncertainty(recorded):

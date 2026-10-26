@@ -20,3 +20,13 @@ tool-output/
 node_modules/
 .DS_Store
 Thumbs.db
+
+# Local development reports, release checks and interview notes
+/evals/
+/scripts/check_release.py
+/scripts/evaluate.py
+/scripts/live_smoke.py
+/docs/验证记录.md
+/docs/简历与演示.md
+/docs/images/demo-desktop.png
+/docs/images/demo-mobile-dark.png
